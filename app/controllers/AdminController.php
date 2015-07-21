@@ -15,7 +15,7 @@ class AdminController extends \BaseController {
 
     public function dashboard(){
         $pageTitle = "Dashboard  | Ecies  ";
-        return View::make('layouts.dashboard', compact('pageTitle'));
+        return View::make('admin.data_table', compact('pageTitle'));
     }
 
 	/**
