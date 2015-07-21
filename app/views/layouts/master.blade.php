@@ -43,7 +43,7 @@
         <li class="devider">&nbsp;</li>
         <li><a href="{{ URL::route('faq') }}" class="login-btn">Help</a></li>
         <li class="devider">&nbsp;</li>
-        <li><a href="{{ URL::route('login') }}" class="login-btn">Login</a></li>
+        <li><a href="{{ URL::route('admin/login') }}" class="login-btn">Login</a></li>
     </ul>
 </div>
 </div><!--/top-->
@@ -136,8 +136,38 @@
 </div><!--/header -->
 <!--=== End Header ===-->
 
+    {{--set some message after action--}}
+    @if (Session::has('message'))
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <b>Success! </b> {{Session::get("message")}}</div>
+    @endif
+    @if(Session::has('error'))
+        <div class="alert alert-error alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <b>Error! </b> {{Session::get("error")}}</div>
+    @endif
+    @if(Session::has('info'))
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <b>Info! </b> {{Session::get("info")}}</div>
+    @endif
+    @if(Session::has('danger'))
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <b>Alert! </b> {{Session::get("danger")}}</div>
 
-@yield('content')
+    @endif
+    @if(Session::has('warning'))
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <b>Warning! </b> {{Session::get("warning")}}</div>
+
+    @endif
+
+
+    {{-- Dynamic Content Area --}}
+    @yield('content')
 
 
 <!--=== Footer ===-->

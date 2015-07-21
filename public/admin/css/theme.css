@@ -98,12 +98,18 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	font-size: 13px;
-	font-family: 'Open Sans', Tahoma, Arial, sans-serif
+	font-family: 'Open Sans', Tahoma, Arial, sans-serif;
 }
+
+.input-prepend textarea{
+    width: 97%;
+}
+
 .input-append input, .input-prepend input, .input-append select, .input-prepend select, .input-append .uneditable-input, .input-prepend .uneditable-input {
 	-webkit-border-radius: 0 3px 3px 0;
 	-moz-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0
+	border-radius: 0 3px 3px 0;
+    width: 97%;
 }
 .input-append input, .input-append select, .input-append .uneditable-input, .input-prepend .add-on:first-child, .input-prepend .btn:first-child {
 	-webkit-border-radius: 3px 0 0 3px;
@@ -668,7 +674,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	text-shadow: 1px 1px 2px #ddd, 0 0 0 #000, 0 0 1px #fff
 }
 .modal-backdrop, .modal-backdrop.fade.in {
-	background: #fff;
+	background: #000;
 	opacity: .9
 }
 .accordion-group {
@@ -1694,3 +1700,4 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', end
 	border-radius: 0 0 3px 0
 }
 @media(max-width:767px){body{padding:0!important}.wrapper{padding:20px 15px}}
+

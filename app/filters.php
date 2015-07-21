@@ -19,7 +19,19 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-	//
+    /*$cookieName = Auth::getRecallerName();
+    if (Session::has('cookie_expiration') && Auth::user()->check() && isset($_COOKIE[$cookieName])) {
+        // get the (current/new) cookie values
+        $cookieValue = Cookie::get($cookieName);
+        $expiration = Session::get('cookie_expiration');
+
+        // forget the session var
+        Session::forget('cookie_expiration');
+
+        // change the expiration time
+        $cookie = Cookie::make($cookieName, $cookieValue, $expiration);
+        return $response->withCookie($cookie);
+    }*/
 });
 
 /*
@@ -37,15 +49,13 @@ Route::filter('auth', function()
 {
 	if (Auth::guest())
 	{
-		if (Request::ajax())
-		{
+		if (Request::ajax()){
 			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('login');
+		}else{
+			return Redirect::guest('admin/login');
 		}
 	}
+
 });
 
 

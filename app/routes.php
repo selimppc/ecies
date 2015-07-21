@@ -96,40 +96,42 @@ Route::any("/faq", [
 ]);
 
 
-//LOGIN
-Route::any("/login", [
-    "as"   => "login",
-    "uses" => "AdminController@login"
-]);
-
-
-Route::any("admin/dashboard", [
-    "as"   => "admin/dashboard",
-    "uses" => "AdminController@dashboard"
-]);
-
-Route::any("admin/logout", [
-    "as"   => "admin/logout",
-    "uses" => "AdminController@logout"
-]);
-
-
-
-
-
 
 Route::group( array('after' => 'auth'), function(){
-    Route::group(['prefix' => 'admin'], function() {
+    #Route::group(['prefix' => 'admin'], function() {
 
         //Admin Login
-        Route::any("/login", [
-            "as"   => "login",
+        Route::any("admin/login", [
+            "as"   => "admin/login",
             "uses" => "AdminController@login"
+        ]);
+
+        //admin dashboard
+        Route::any("admin/dashboard", [
+            "as"   => "admin/dashboard",
+            "uses" => "AdminController@dashboard"
+        ]);
+
+
+        // Logout
+        Route::any("admin/logout", [
+            "as"   => "admin/logout",
+            "uses" => "AdminController@logout"
+        ]);
+
+
+        // ICT Support
+        Route::any("solution/ict-support", [
+            "as"   => "solution/ict-support",
+            "uses" => "AdminController@ict_support"
         ]);
 
 
 
-    });
+
+
+
+    #});
 });
 
 
