@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $pageTitle }}</title>
+    <link rel="shortcut icon" href="assets/img/icon.png" />
     {{ HTML::style('admin/bootstrap/css/bootstrap.min.css') }}
     {{ HTML::style('admin/bootstrap/css/bootstrap-responsive.min.css') }}
     {{ HTML::style('admin/css/theme.css') }}
