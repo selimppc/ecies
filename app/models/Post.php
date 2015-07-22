@@ -69,10 +69,13 @@ class Post extends Eloquent {
             'security'=>'Security',
             'consultancy'=>'Consultancy',
             'web-design'=>'Web Design',
+            'communication-it'=>'Communication It',
+            'english-language'=>'English Language',
             'client-service'=>'Client Service',
             'client-student'=>'Client Student',
             'ecies-overview'=>'Ecies Overview',
             'ecies-partner'=>'Ecies Partner',
+            'ecies-career'=>'Ecies career',
             'recent-work'=>'Recent Work',
         ];
         return $result;

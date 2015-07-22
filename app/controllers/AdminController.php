@@ -194,80 +194,87 @@ class AdminController extends \BaseController {
 
 
 
-
+    //Solution - Security
     public function security(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Security  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'security')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
+    //Solution - Consultancy
     public function consultancy(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Consultancy  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'consultancy')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
 
+    //Solution - Web Design
     public function web_design(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Web Design ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'web-design')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
+    //Course - Communication IT
     public function communication_it(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Communication IT  ";
         $post_type = Post::post_type();
         $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
-
+    //Course - English Language
     public function english_language(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "English Language  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'english-language')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
 
+    //Client - Service
     public function service(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Service ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'client-service')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
 
+    //Client - Student
     public function student(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Student  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'client-student')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
-
+    //ecies - overview
     public function overview(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "About Ecies  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'ecies-overview')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
+    //ecies - partner
     public function partner(){
-        $pageTitle = "ICT Support  ";
+        $pageTitle = "Ecies Partner  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'ecies-partner')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
+    //ecies - career
     public function career(){
         $pageTitle = "Career  ";
         $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+        $data = Post::where('type', 'ecies-career')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
 
