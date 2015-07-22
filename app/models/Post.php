@@ -16,7 +16,7 @@ class Post extends Eloquent {
 	 */
 	protected $table = 'post';
     protected $fillable = [
-        'type', 'title', 'description', 'image', 'status'
+        'type', 'title', 'description', 'image', 'thumb', 'status'
     ];
     public $errors;
 

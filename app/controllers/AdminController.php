@@ -84,7 +84,7 @@ class AdminController extends \BaseController {
     }
 
     public function dashboard(){
-        $pageTitle = "Dashboard  | Ecies.co.UK  ";
+        $pageTitle = "Ecies.co.UK  ";
         return View::make('admin.data_table', compact('pageTitle'));
     }
 
@@ -92,19 +92,42 @@ class AdminController extends \BaseController {
 
     /*
      *
-     * ICT SUPPORT
+     * Store Process for all type POST
      *
      */
-
-    public function ict_support(){
+    public function store_post( $id= null){
         if($this->isPostRequest()){
-            $input_data = Input::all();
-            print_r($input_data);exit;
-            $model = new Post();
+            $input_data = Input::all(); // input all data
+            $image = $input_data['image']; // $image variable
+            $model = $id ? Post::find($id) : new Post(); // call model
+
+            //set data
+            $model->type = $input_data['type'];
+            $model->title = $input_data['title'];
+            $model->description = $input_data['description'];
+            $model->status = $input_data['status'];
+
+            // Image save
+            if (Input::hasFile('image')){
+                // Images destination
+                $img_dir = "images/".$input_data['type']."/";
+                $img_thumb_dir = $img_dir."thumb/";
+
+                $filename = $image->getClientOriginalName();
+                $pathL = public_path($img_dir.$filename);
+                $pathS = public_path($img_thumb_dir.$filename);
+                Image::make($image->getRealPath())->resize(900, 600)->save($pathL);
+                Image::make($image->getRealPath())->resize(60, 60)->save($pathS);
+
+                $model->image = "images/".$input_data['type']."/".$filename;
+                $model->thumb = "images/".$input_data['type']."/thumb/".$filename;
+            }
+
+            //save data into
             if($model->validate($input_data)) {
                 DB::beginTransaction();
                 try {
-                    $model->create($input_data);
+                    $model->save();
                     DB::commit();
                     Session::flash('message', 'Success !');
                 }catch (Exception $e) {
@@ -113,13 +136,139 @@ class AdminController extends \BaseController {
                     Session::flash('danger', 'Failed !');
                 }
             }
-            return Redirect::back();
         }else{
-            $pageTitle = "ICT Support | Dashboard | Ecies.co.UK ";
-            $post_type = Post::post_type();
-            $data = Post::where('type', 'ict-support')->latest('id')->get();
-            return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+            Session::flash('danger', 'Invalid Request !');
         }
+        return Redirect::back();
     }
+
+    /*
+     *
+     * ICT SUPPORT
+     *
+     */
+
+    public function ict_support(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+    public function index_post($type){
+        $pageTitle = Str::title($type);
+        $post_type = Post::post_type();
+        $data = Post::where('type', $type)->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+
+    public function view_post($type, $id){
+        $data = Post::where('type', $type)->where('id', $id)->first();
+        return View::make('admin.post.show', compact('data'));
+    }
+
+    public function edit_post($type, $id){
+        $pageTitle = " Edit Post";
+        $post_type = Post::post_type();
+        $model = Post::find($id);
+        return View::make('admin.post.edit', compact('model','pageTitle', 'post_type'));
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy_post($id)
+    {
+        // delete
+        $employee = Post::find($id);
+        $employee->delete();
+        // redirect
+        Session::flash('message', 'Successfully deleted!');
+        return Redirect::back();
+    }
+
+
+
+
+    public function security(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+    public function consultancy(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+
+    public function web_design(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+    public function communication_it(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+
+    public function english_language(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+
+    public function service(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+
+    public function student(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+
+    public function overview(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+    public function partner(){
+        $pageTitle = "ICT Support  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
+    public function career(){
+        $pageTitle = "Career  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-support')->latest('id')->get();
+        return View::make('admin.post.ict_support', compact('data','pageTitle', 'post_type'));
+    }
+
 
 }

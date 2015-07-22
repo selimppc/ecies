@@ -120,14 +120,113 @@ Route::group( array('after' => 'auth'), function(){
         ]);
 
 
+        // Store all type of POST
+        Route::any("store-post/{id}", [
+            "as"   => "store-post",
+            "uses" => "AdminController@store_post"
+        ]);
+
+
         // ICT Support
         Route::any("solution/ict-support", [
             "as"   => "solution/ict-support",
             "uses" => "AdminController@ict_support"
         ]);
 
+        // Index POST
+        Route::any("index-post/{type}", [
+            "as"   => "index-post",
+            "uses" => "AdminController@index_post"
+        ]);
+
+        // View type of POST
+        Route::any("view-post/{type}/{id}", [
+            "as"   => "view-post",
+            "uses" => "AdminController@view_post"
+        ]);
 
 
+        // edit type of POST
+        Route::any("edit-post/{type}/{id}", [
+            "as"   => "edit-post",
+            "uses" => "AdminController@edit_post"
+        ]);
+
+        // edit type of POST
+        Route::any("destroy-post/{id}", [
+            "as"   => "destroy-post",
+            "uses" => "AdminController@destroy_post"
+        ]);
+
+
+
+
+
+        // solution/security
+        Route::any("solution/security", [
+            "as"   => "solution/security",
+            "uses" => "AdminController@security"
+        ]);
+
+        // solution/consultancy
+        Route::any("solution/consultancy", [
+            "as"   => "solution/consultancy",
+            "uses" => "AdminController@consultancy"
+        ]);
+
+        // solution/web-design
+        Route::any("solution/web-design", [
+            "as"   => "solution/web-design",
+            "uses" => "AdminController@web_design"
+        ]);
+
+
+        // solution/web-design
+        Route::any("course/communication-it", [
+            "as"   => "course/communication-it",
+            "uses" => "AdminController@communication_it"
+        ]);
+
+        // course/english-language
+        Route::any("course/english-language", [
+            "as"   => "course/english-language",
+            "uses" => "AdminController@english_language"
+        ]);
+
+
+        // client/service
+        Route::any("client/service", [
+            "as"   => "client/service",
+            "uses" => "AdminController@service"
+        ]);
+
+
+        // client/student
+        Route::any("client/student", [
+            "as"   => "client/student",
+            "uses" => "AdminController@student"
+        ]);
+
+
+        // ecies/overview
+        Route::any("ecies/overview", [
+            "as"   => "ecies/overview",
+            "uses" => "AdminController@overview"
+        ]);
+
+
+        // ecies/partner
+        Route::any("ecies/partner", [
+            "as"   => "ecies/partner",
+            "uses" => "AdminController@partner"
+        ]);
+
+
+        // ecies/career
+        Route::any("ecies/career", [
+            "as"   => "ecies/career",
+            "uses" => "AdminController@career"
+        ]);
 
 
 
