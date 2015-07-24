@@ -55,9 +55,14 @@ Route::any("client/student", [
 ]);
 
 //REGISTRATION
-Route::any("registration", [
-    "as"   => "registration",
+Route::any("registrations", [
+    "as"   => "registrations",
     "uses" => "HomeController@registration"
+]);
+
+Route::any("store/registrations", [
+    "as"   => "store/registrations",
+    "uses" => "HomeController@store_registrations"
 ]);
 
 //ECIES
@@ -98,7 +103,7 @@ Route::any("/faq", [
 
 
 Route::group( array('after' => 'auth'), function(){
-    #Route::group(['prefix' => 'admin'], function() {
+    Route::group(['prefix' => 'admin'], function() {
 
         //Admin Login
         Route::any("admin/login", [
@@ -319,7 +324,7 @@ Route::group( array('after' => 'auth'), function(){
 
 
 
-    #});
+    });
 });
 
 

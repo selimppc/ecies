@@ -105,7 +105,7 @@
                         <b class="caret-out"></b>
                     </li>
                     <li>
-                        <a href="{{ URL::route('registration') }}" >Registration </a>
+                        <a href="{{ URL::route('registrations') }}" >Registration </a>
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">ECIES
@@ -164,7 +164,6 @@
             <b>Warning! </b> {{Session::get("warning")}}</div>
 
     @endif
-
 
     {{-- Dynamic Content Area --}}
     @yield('content')
