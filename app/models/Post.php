@@ -64,6 +64,7 @@ class Post extends Eloquent {
         $result = [
             ''=>'Select Post Type',
             'ict-support'=>'ICT Support',
+            'ict-workshop'=>'ICT Workshop',
             'security'=>'Security',
             'consultancy'=>'Consultancy',
             'web-design'=>'Web Design',

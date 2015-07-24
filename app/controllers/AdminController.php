@@ -448,4 +448,20 @@ class AdminController extends \BaseController {
 
 
 
+    /*
+     *
+     * Home Page
+     *
+     *
+     */
+
+    public function ict_workshop(){
+        $pageTitle = "ICT Workshop  ";
+        $post_type = Post::post_type();
+        $data = Post::where('type', 'ict-workshop')->latest('id')->get();
+        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
+    }
+
+
+
 }

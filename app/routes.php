@@ -324,6 +324,24 @@ Route::group( array('after' => 'auth'), function(){
 
 
 
+
+     /*
+     *
+     * Home Page
+     *
+     *
+     */
+
+     Route::any("ict-workshop", [
+        "as"   => "ict-workshop",
+        "uses" => "AdminController@ict_workshop"
+     ]);
+
+
+
+
+
+
     });
 });
 

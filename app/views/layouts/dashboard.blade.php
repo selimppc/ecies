@@ -177,8 +177,8 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="{{URL::route('ecies/overview')}}"> <i class="icon-angle-right"></i>
-                            Overview
+                        <a href="{{URL::route('ict-workshop')}}"> <i class="icon-angle-right"></i>
+                            ICT Workshop
                         </a>
                     </li>
                     <li>

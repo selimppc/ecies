@@ -9,8 +9,10 @@ class HomeController extends BaseController {
 
     // Home Page
     public function index() {
-        $data = Post::all();
-        print_r($data['']);exit;
+        /*$data_security = Post::where('type', 'security')->latest('id')->first();
+        $data_consultancy = Post::where('type', 'consultancy')->latest('id')->first();
+        $data_ict_workshop = Post::where('type', 'ict-workshop')->latest('id')->first();
+        print_r($data_ict_workshop);exit;*/
         $pageTitle = "Ecies | excellence in the training & consultancy services in UK ";
         return View::make('pages.index', compact(
             'pageTitle'
