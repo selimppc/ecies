@@ -5,16 +5,19 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Post extends Eloquent {
+class Registration extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'post';
+	protected $table = 'registration';
     protected $fillable = [
-        'type', 'title', 'description', 'image', 'thumb', 'status'
+        'full_name', 'personal_detail','company','company_detail',
+        'job_title', 'city', 'country', 'address', 'email', 'mobile',
+        'phone', 'industry', 'course', 'course_detail', 'subject', 'note',
+        'payment_detail', 'stay_detail', 'status',
     ];
     public $errors;
 
@@ -60,21 +63,6 @@ class Post extends Eloquent {
 
     //TODO : Scope Area
 
-    public static function post_type(){
-        $result = [
-            ''=>'Select Post Type',
-            'ict-support'=>'ICT Support',
-            'security'=>'Security',
-            'consultancy'=>'Consultancy',
-            'web-design'=>'Web Design',
-            'client-service'=>'Client Service',
-            'client-student'=>'Client Student',
-            'ecies-overview'=>'Ecies Overview',
-            'ecies-partner'=>'Ecies Partner',
-            'ecies-career'=>'Ecies career',
-            'recent-work'=>'Recent Work',
-        ];
-        return $result;
-    }
+    
 
 }

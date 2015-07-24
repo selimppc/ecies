@@ -1,44 +1,154 @@
-@extends('layouts.master')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>{{ $pageTitle }}</title>
 
-@section('content')
-<!--=== Breadcrumbs ===-->
-<div class="breadcrumbs margin-bottom-40">
-    <div class="container">
-        <h1 class="color-green pull-left">Login</h1>
-        <ul class="pull-right breadcrumb">
-            <li><a href="{{ URL::route('index') }}">Home</a> <span class="divider">/</span></li>
-            <li><a href="">Pages</a> <span class="divider">/</span></li>
-            <li class="active">Login</li>
-        </ul>
-    </div><!--/container-->
-</div><!--/breadcrumbs-->
-<!--=== End Breadcrumbs ===-->
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    {{ HTML::style('admin/bootstrap/css/bootstrap.min.css') }}
 
-<!--=== Content Part ===-->
-<div class="container">
-    <div class="row-fluid">
-        {{ Form::open(array('url'=>'admin/login', 'method'=>'post', 'class'=>'log-page')) }}
-            <h3>Login to your account</h3>
-            <div class="input-prepend">
+    <!-- Theme -->
+    {{ HTML::style('admin/assets/css/main.css') }}
+    {{ HTML::style('admin/assets/css/plugins.css') }}
+    {{ HTML::style('admin/assets/css/responsive.css') }}
+    {{ HTML::style('admin/assets/css/icons.css') }}
+
+    <!-- Login -->
+    {{ HTML::style('admin/assets/css/login.css') }}
+
+    {{ HTML::style('admin/assets/css/fontawesome/font-awesome.min.css') }}
+    <!--[if IE 7]>
+    {{ HTML::style('admin/assets/css/fontawesome/font-awesome-ie7.min.css') }}
+    <![endif]-->
+
+    <!--[if IE 8]>
+    {{ HTML::style('admin/assets/css/ie8.css') }}
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+    <!--=== JavaScript ===-->
+    {{ HTML::style('admin/assets/js/libs/jquery-1.10.2.min.js') }}
+    {{ HTML::style('admin/bootstrap/js/bootstrap.min.js') }}
+    {{ HTML::style('admin/assets/js/libs/lodash.compat.min.js') }}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    {{ HTML::style('admin/assets/js/libs/html5shiv.js') }}
+    <![endif]-->
+
+    <!-- Beautiful Checkboxes -->
+    {{ HTML::style('admin/plugins/uniform/jquery.uniform.min.js') }}
+
+    <!-- Form Validation -->
+    {{ HTML::style('admin/plugins/validation/jquery.validate.min.js') }}
+
+    <!-- Slim Progress Bars -->
+    {{ HTML::style('admin/plugins/nprogress/nprogress.js') }}
+
+    <!-- App -->
+    {{ HTML::style('admin/assets/js/login.js') }}
+    <script>
+        $(document).ready(function(){
+            "use strict";
+            Login.init(); // Init login JavaScript
+        });
+    </script>
+</head>
+
+<body class="login">
+<!-- Logo -->
+<div class="logo">
+    <a href="{{URL::route('index')}}">
+        {{ HTML::image( '/assets/img/logo_ecies.png', 'Ecies.co.uk' ) }}
+    </a>
+</div>
+<!-- /Logo -->
+
+<!-- Login Box -->
+<div class="box">
+    <div class="content">
+        <!-- Login Formular -->
+        {{ Form::open(array('url'=>'admin/login', 'method'=>'post', 'class'=>'form-vertical login-form')) }}
+            <!-- Title -->
+            <h3 class="form-title">Sign In to your Account</h3>
+
+            <!-- Error Message -->
+            <div class="alert fade in alert-danger" style="display: none;">
+                <i class="icon-remove close" data-dismiss="alert"></i>
+                Enter any username and password.
+            </div>
+
+            <!-- Input Fields -->
+            <div class="form-group">
+                <!--<label for="username">Username:</label>-->
                 {{ $errors->first('username', '<div class="alert alert-danger"><b>:message</b></div>')  }}
-                <span class="add-on"><i class="icon-user"></i></span>
-                {{Form::text('username', null, ['class'=>'form-control', 'placeholder'=>'username', 'required'=>'required', 'autofocus'])}}
+                <div class="input-icon">
+                    <i class="icon-user"></i>
+                    {{Form::text('username', null, ['class'=>'form-control', 'placeholder'=>'username', 'required'=>'required', 'autofocus', 'data-rule-required'=>'true',  'data-msg-required'=>'Please enter your username.' ])}}
+                </div>
             </div>
-            <div class="input-prepend">
+            <div class="form-group">
+                <!--<label for="password">Password:</label>-->
                 {{ $errors->first('password', '<div class="alert alert-danger"><b>:message</b></div>')  }}
-                <span class="add-on"><i class="icon-lock"></i></span>
-                {{Form::password('password', ['class'=>'form-control', 'placeholder'=>'password', 'required'=>'required'])}}
+                <div class="input-icon">
+                    <i class="icon-lock"></i>
+                    {{Form::password('password', ['class'=>'form-control', 'placeholder'=>'password', 'required'=>'required', 'data-rule-required'=>'true',  'data-msg-required' => 'Please enter your password.' ])}}
+                </div>
             </div>
-            <div class="controls form-inline">
-                <label class="checkbox">{{Form::checkbox('remember_me', null)}} Remember Me</label>
-                <button class="btn-u pull-right" type="submit">Login</button>
-            </div>
-            <hr />
-            {{--<h4>Forget your Password ?</h4>--}}
-            {{--<p>no worries, <a class="color-green" href="#">click here</a> to reset your password.</p>--}}
-        {{ Form::close() }}
-    </div><!--/row-fluid-->
-</div><!--/container-->
-<!--=== End Content Part ===-->
+            <!-- /Input Fields -->
 
-@stop
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <label class="checkbox pull-left"><input type="checkbox" class="uniform" name="remember"> Remember me</label>
+                <button type="submit" class="submit btn btn-primary pull-right">
+                    Sign In <i class="icon-angle-right"></i>
+                </button>
+            </div>
+        {{ Form::close() }}
+        <!-- /Login Formular -->
+
+
+    </div> <!-- /.content -->
+
+    <!-- Forgot Password Form -->
+    <div class="inner-box">
+        <div class="content">
+            <!-- Close Button -->
+            <i class="icon-remove close hide-default"></i>
+
+            <!-- Link as Toggle Button -->
+            <a href="" class="forgot-password-link">Forgot Password?</a>
+
+            {{--<!-- Forgot Password Formular -->--}}
+            {{--<form class="form-vertical forgot-password-form hide-default" action="" method="post">--}}
+                {{--<!-- Input Fields -->--}}
+                {{--<div class="form-group">--}}
+                    {{--<!--<label for="email">Email:</label>-->--}}
+                    {{--<div class="input-icon">--}}
+                        {{--<i class="icon-envelope"></i>--}}
+                        {{--<input type="text" name="email" class="form-control" placeholder="Enter email address" data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your email." />--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<!-- /Input Fields -->--}}
+
+                {{--<button type="submit" class="submit btn btn-default btn-block">--}}
+                    {{--Reset your Password--}}
+                {{--</button>--}}
+            {{--</form>--}}
+            <!-- /Forgot Password Formular -->
+
+            <!-- Shows up if reset-button was clicked -->
+            <div class="forgot-password-done hide-default">
+                <i class="icon-ok success-icon"></i> <!-- Error-Alternative: <i class="icon-remove danger-icon"></i> -->
+                <span>Great. We have sent you an email.</span>
+            </div>
+        </div> <!-- /.content -->
+    </div>
+    <!-- /Forgot Password Form -->
+</div>
+<!-- /Login Box -->
+
+</body>
+</html>

@@ -15,7 +15,7 @@
 
 <div class='form-group'>
     {{ Form::label('description', 'Description') }}
-    {{ Form::textarea('description', Input::old('description'),[ 'class'=>'form-control wysiwyg', 'onkeyup'=>"javascript:this.value=this.value.replace(/[<,>]/g,'');", 'size' => '30x5']) }}
+    {{ Form::textarea('description', Input::old('description'),[ 'class'=>'form-control wysiwyg', 'onkeyup'=>"javascript:this.value=this.value.replace(/[<,>]/g,'');"]) }}
 </div>
 
 <div class='form-group'>

@@ -95,11 +95,11 @@ class AdminController extends \BaseController {
      * Store Process for all type POST
      *
      */
-    public function store_post( $id= null){
+    public function store_post(){
         if($this->isPostRequest()){
             $input_data = Input::all(); // input all data
             $image = $input_data['image']; // $image variable
-            $model = $id ? Post::find($id) : new Post(); // call model
+            $model = Input::get('id') ? Post::find(Input::get('id')) : new Post(); // call model
 
             //set data
             $model->type = $input_data['type'];
@@ -122,6 +122,49 @@ class AdminController extends \BaseController {
                 $model->image = "images/".$input_data['type']."/".$filename;
                 $model->thumb = "images/".$input_data['type']."/thumb/".$filename;
             }
+
+            //save data into
+            if($model->validate($input_data)) {
+                DB::beginTransaction();
+                try {
+                    $model->save();
+                    DB::commit();
+                    Session::flash('message', 'Success !');
+                }catch (Exception $e) {
+                    //If there are any exceptions, rollback the transaction`
+                    DB::rollback();
+                    Session::flash('danger', 'Failed !');
+                }
+            }
+        }else{
+            Session::flash('danger', 'Invalid Request !');
+        }
+        return Redirect::back();
+    }
+
+
+
+    /*
+     *
+     * Store Process for all type POST
+     *
+     */
+    public function store_course(){
+        if($this->isPostRequest()){
+            $input_data = Input::all(); // input all data
+            $model = Input::get('id') ? Course::find(Input::get('id')) : new Course(); // call model
+
+            //set data
+            $model->type = $input_data['type'];
+            $model->title = $input_data['title'];
+            $model->code = $input_data['code'];
+            $model->length = $input_data['length'];
+            $model->attend = $input_data['attend'];
+            $model->information = $input_data['information'];
+            $model->information_link = $input_data['information_link'];
+            $model->contact = $input_data['contact'];
+            $model->contact_link = $input_data['contact_link'];
+            $model->status = $input_data['status'];
 
             //save data into
             if($model->validate($input_data)) {
@@ -219,20 +262,41 @@ class AdminController extends \BaseController {
         return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
 
+
+    // COURSE
+    public function view_course($type, $id){
+        $data = Course::where('type', $type)->where('id', $id)->first();
+        return View::make('admin.course.show', compact('data'));
+    }
+
+    public function edit_course($type, $id){
+        $pageTitle = " Edit Course";
+        $course_type = Course::course_type();
+        $model = Course::find($id);
+        return View::make('admin.course.edit', compact('model','pageTitle', 'course_type'));
+    }
+    public function destroy_course($id)
+    {
+        $model = Course::find($id);
+        $model->delete();
+        Session::flash('message', 'Successfully deleted!');
+        return Redirect::back();
+    }
+
     //Course - Communication IT
     public function communication_it(){
         $pageTitle = "Communication IT  ";
-        $post_type = Post::post_type();
-        $data = Post::where('type', 'ict-support')->latest('id')->get();
-        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
+        $course_type = Course::course_type();
+        $data = Course::where('type', 'communication-it')->latest('id')->get();
+        return View::make('admin.course.index', compact('data','pageTitle', 'course_type'));
     }
 
     //Course - English Language
     public function english_language(){
         $pageTitle = "English Language  ";
-        $post_type = Post::post_type();
-        $data = Post::where('type', 'english-language')->latest('id')->get();
-        return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
+        $course_type = Course::course_type();
+        $data = Course::where('type', 'english-language')->latest('id')->get();
+        return View::make('admin.course.index', compact('data','pageTitle', 'course_type'));
     }
 
 
@@ -276,6 +340,112 @@ class AdminController extends \BaseController {
         $data = Post::where('type', 'ecies-career')->latest('id')->get();
         return View::make('admin.post.index', compact('data','pageTitle', 'post_type'));
     }
+
+
+
+
+
+    /*
+     *
+     * RECENT WORK
+     *
+     */
+
+    // Recent Work
+    public function index_recent_work(){
+        $pageTitle = "Recent Work";
+        $data = RecentWork::latest('id')->get();
+        return View::make('admin.recent_work.index', compact('data','pageTitle'));
+    }
+
+    public function store_recent_work(){
+        if($this->isPostRequest()){
+            $input_data = Input::all(); // input all data
+            $image = $input_data['image']; // $image variable
+            $model = Input::get('id') ? RecentWork::find(Input::get('id')) : new RecentWork(); // call model
+
+            //set data
+            $model->title = $input_data['title'];
+            $model->short_description = $input_data['short_description'];
+            $model->long_description = $input_data['long_description'];
+            $model->status = $input_data['status'];
+
+            // Image save
+            if (Input::hasFile('image')){
+                // Images destination
+                $img_dir = "images/recent-work/";
+                #$img_thumb_dir = $img_dir."thumb/";
+
+                $filename = $image->getClientOriginalName();
+                $pathL = public_path($img_dir.$filename);
+                #$pathS = public_path($img_thumb_dir.$filename);
+                Image::make($image->getRealPath())->resize(900, 600)->save($pathL);
+                #Image::make($image->getRealPath())->resize(60, 60)->save($pathS);
+
+                $model->image = "images/recent-work/".$filename;
+                #$model->thumb = "images/".$input_data['type']."/thumb/".$filename;
+            }
+
+            //save data into
+            if($model->validate($input_data)) {
+                DB::beginTransaction();
+                try {
+                    $model->save();
+                    DB::commit();
+                    Session::flash('message', 'Success !');
+                }catch (Exception $e) {
+                    //If there are any exceptions, rollback the transaction`
+                    DB::rollback();
+                    Session::flash('danger', 'Failed !');
+                }
+            }
+        }else{
+            Session::flash('danger', 'Invalid Request !');
+        }
+        return Redirect::back();
+    }
+
+    public function view_recent_work($id){
+        $data = RecentWork::where('id', $id)->first();
+        return View::make('admin.recent_work.show', compact('data'));
+    }
+
+    public function edit_recent_work($id){
+        $pageTitle = " Edit Recent Work";
+        $model = RecentWork::find($id);
+        return View::make('admin.recent_work.edit', compact('model','pageTitle'));
+    }
+    public function destroy_recent_work($id)
+    {
+        $model = RecentWork::find($id);
+        $model->delete();
+        Session::flash('message', 'Successfully deleted!');
+        return Redirect::back();
+    }
+
+
+
+
+
+    /*
+     *
+     * Registration
+     *
+     */
+
+    // Registration
+    public function index_registration(){
+        $pageTitle = "Registration History";
+        $data = Registration::latest('id')->get();
+        return View::make('admin.registration.index', compact('data','pageTitle'));
+    }
+
+    public function view_registration($id){
+        $data = Registration::where('id', $id)->first();
+        return View::make('admin.registration.show', compact('data'));
+    }
+
+
 
 
 }

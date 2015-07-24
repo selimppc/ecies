@@ -12,6 +12,7 @@
 <div class="modal-body" >
 
     {{Form::model($model, ['route'=> ['store-post', $model->id], 'role' => 'form', 'files' => true,])}}
+        {{Form::hidden('id', Input::old('code') )}}
         @include('admin.post._from')
     {{ Form::close() }}
 

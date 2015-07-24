@@ -169,8 +169,34 @@
                 </a>
             </li>
 
+            <!--=== Home Page ===-->
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-folder-open-alt"></i>
+                    Home Page
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{URL::route('ecies/overview')}}"> <i class="icon-angle-right"></i>
+                            Overview
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{URL::route('ecies/partner')}}"> <i class="icon-angle-right"></i>
+                            Partner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{URL::route('ecies/career')}}"> <i class="icon-angle-right"></i>
+                            Career
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
             <!--=== Solution ===-->
-            <li class="current">
+            <li>
                 <a href="javascript:void(0);">
                     <i class="icon-folder-open-alt"></i>
                     Solution
@@ -242,7 +268,7 @@
             </li>
 
 
-            <!--=== Client ===-->
+            <!--=== ECIES ===-->
             <li>
                 <a href="javascript:void(0);">
                     <i class="icon-folder-open-alt"></i>
@@ -265,6 +291,36 @@
                         </a>
                     </li>
 
+                </ul>
+            </li>
+
+            <!--=== Recent Work ===-->
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-folder-open-alt"></i>
+                    Recent Work
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{URL::route('recent-work')}}"> <i class="icon-angle-right"></i>
+                            Recent Work(s)
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--=== Registered Person/Course ===-->
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-folder-open-alt"></i>
+                    Registration History
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{URL::route('registration')}}"> <i class="icon-angle-right"></i>
+                            Registration(s)
+                        </a>
+                    </li>
                 </ul>
             </li>
 

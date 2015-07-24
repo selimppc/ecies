@@ -121,9 +121,15 @@ Route::group( array('after' => 'auth'), function(){
 
 
         // Store all type of POST
-        Route::any("store-post/{id}", [
+        Route::any("store-post", [
             "as"   => "store-post",
             "uses" => "AdminController@store_post"
+        ]);
+
+        // Store all type of POST
+        Route::any("store-course", [
+            "as"   => "store-course",
+            "uses" => "AdminController@store_course"
         ]);
 
 
@@ -187,6 +193,30 @@ Route::group( array('after' => 'auth'), function(){
             "uses" => "AdminController@communication_it"
         ]);
 
+
+        /*
+         *
+         *  Course
+         */
+        // View type of course
+        Route::any("view-course/{type}/{id}", [
+            "as"   => "view-course",
+            "uses" => "AdminController@view_course"
+        ]);
+
+
+        // edit type of course
+        Route::any("edit-course/{type}/{id}", [
+            "as"   => "edit-course",
+            "uses" => "AdminController@edit_course"
+        ]);
+
+        // edit type of POST
+        Route::any("destroy-course/{id}", [
+            "as"   => "destroy-course",
+            "uses" => "AdminController@destroy_course"
+        ]);
+
         // course/english-language
         Route::any("course/english-language", [
             "as"   => "course/english-language",
@@ -227,6 +257,65 @@ Route::group( array('after' => 'auth'), function(){
             "as"   => "ecies/career",
             "uses" => "AdminController@career"
         ]);
+
+
+
+    /*
+     *
+     * Recent WORK
+     *
+     *
+     */
+
+    Route::any("recent-work", [
+        "as"   => "recent-work",
+        "uses" => "AdminController@index_recent_work"
+    ]);
+
+    Route::any("store-recent-work", [
+        "as"   => "store-recent-work",
+        "uses" => "AdminController@store_recent_work"
+    ]);
+
+
+    Route::any("view-recent-work/{id}", [
+        "as"   => "view-recent-work",
+        "uses" => "AdminController@view_recent_work"
+    ]);
+
+
+    Route::any("edit-recent-work/{id}", [
+        "as"   => "edit-recent-work",
+        "uses" => "AdminController@edit_recent_work"
+    ]);
+
+    Route::any("destroy-recent-work/{id}", [
+        "as"   => "destroy-recent-work",
+        "uses" => "AdminController@destroy_recent_work"
+    ]);
+
+
+
+
+    /*
+     *
+     * Registration
+     *
+     *
+     */
+
+    Route::any("registration", [
+        "as"   => "registration",
+        "uses" => "AdminController@index_registration"
+    ]);
+
+    Route::any("view-registration/{id}", [
+        "as"   => "view-registration",
+        "uses" => "AdminController@view_registration"
+    ]);
+
+
+
 
 
 

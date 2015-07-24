@@ -10,7 +10,7 @@
         <ul class="page-stats">
             <li>
                 <button type="button" class="pull-right btn btn-sm btn-info" data-toggle="modal" data-target="#modal-form">
-                    + New ICT Support
+                    + New
                 </button>
             </li>
 
