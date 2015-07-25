@@ -9,13 +9,16 @@ class HomeController extends BaseController {
 
     // Home Page
     public function index() {
-        /*$data_security = Post::where('type', 'security')->latest('id')->first();
+        $data_security = Post::where('type', 'security')->latest('id')->first();
         $data_consultancy = Post::where('type', 'consultancy')->latest('id')->first();
         $data_ict_workshop = Post::where('type', 'ict-workshop')->latest('id')->first();
-        print_r($data_ict_workshop);exit;*/
+        $ecies_overview = Post::where('type', 'ecies-overview')->latest('id')->first();
+        $recent_work = RecentWork::latest('id')->take(4)->get();
+
         $pageTitle = "Ecies | excellence in the training & consultancy services in UK ";
         return View::make('pages.index', compact(
-            'pageTitle'
+            'pageTitle', 'data_security', 'data_consultancy', 'data_ict_workshop',
+            'ecies_overview', 'recent_work'
         ));
     }
 

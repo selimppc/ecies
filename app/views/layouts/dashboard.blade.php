@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title> {{ $pageTitle }} </title>
+    <title> @if(isset($pageTitle)) {{$pageTitle }} @else {{"Ecies"}} @endif </title>
 
     <!-- Bootstrap -->
     {{ HTML::style('admin/bootstrap/css/bootstrap.min.css') }}
@@ -100,7 +100,7 @@
     </ul>
 
     <!-- Logo -->
-    <a class="navbar-brand" href="{{URL::route('admin/dashboard')}}">
+    <a class="navbar-brand" href="{{URL::route('dashboard')}}">
         {{ HTML::image( '/assets/img/logo_ecies.png', 'Ecies.co.uk', ['width'=>'50%'] ) }}
         <strong>.co.UK </strong>
     </a>
@@ -163,7 +163,7 @@
         <!--=== Navigation ===-->
         <ul id="nav">
             <li>
-                <a href="{{ URL::route('admin/dashboard') }}">
+                <a href="{{ URL::route('dashboard') }}">
                     <i class="icon-dashboard"></i>
                     Dashboard
                 </a>
@@ -181,17 +181,6 @@
                             ICT Workshop
                         </a>
                     </li>
-                    <li>
-                        <a href="{{URL::route('ecies/partner')}}"> <i class="icon-angle-right"></i>
-                            Partner
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{URL::route('ecies/career')}}"> <i class="icon-angle-right"></i>
-                            Career
-                        </a>
-                    </li>
-
                 </ul>
             </li>
 
@@ -351,7 +340,7 @@
             <ul id="breadcrumbs" class="breadcrumb">
                 <li>
                     <i class="icon-home"></i>
-                    <a href="{{ URL::route('admin/dashboard') }}">Dashboard</a>
+                    <a href="{{ URL::route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="current">
                     {{$pageTitle}}

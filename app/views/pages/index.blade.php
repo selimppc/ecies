@@ -44,8 +44,8 @@
             <!--<i class="icon-resize-small"></i>-->
             {{ HTML::image( '/assets/img/lock.png', 'Ecies.co.uk', ['width'=>"80"] ) }}
             <div class="desc">
-                <h4>SECURITY</h4>
-                <p>One of the largest threats facing IT organizations today is not necessarily from outside attackers, but rather the simple fact that there just aren't...</p>
+                <h4>{{ Str::upper($data_security->title) }}</h4>
+                <p>{{ substr($data_security->description, 0, 130) }} ...</p>
             </div>
         </div>
     </div>
@@ -54,8 +54,8 @@
             <!--<i class="icon-cogs"></i>-->
             {{ HTML::image( '/assets/img/process.png', 'Ecies.co.uk', ['width'=>"80"] ) }}
             <div class="desc">
-                <h4>CONSULTANCY</h4>
-                <p>helping organizations to improve their performance, primarily through the analysis of existing organizational problems and development of plans...</p>
+                <h4>{{ Str::upper($data_consultancy->title) }}</h4>
+                <p>{{ substr($data_consultancy->description, 0, 130) }} ...</p>
             </div>
         </div>
     </div>
@@ -64,8 +64,8 @@
             <!--<i class="icon-plane"></i>-->
             {{ HTML::image( '/assets/img/it_suite.png', 'Ecies.co.uk', ['width'=>"80"] ) }}
             <div class="desc">
-                <h4>ICT Workshop</h4>
-                <p>IT Service Managment Workshop aucibus justo massa massa. At odio Nulla tempor tortor tellus Aenean mauris pretium leo justo. Et amet elit Aliquam...</p>
+                <h4>{{ Str::upper($data_ict_workshop->title) }}</h4>
+                <p>{{ substr($data_ict_workshop->description, 0, 130) }} ...</p>
             </div>
         </div>
     </div>
@@ -75,54 +75,21 @@
 <!-- Recent Works -->
 <div class="headline"><h3>Recent Works</h3></div>
 <ul class="thumbnails">
+    @foreach($recent_work as $values)
     <li class="span3">
         <div class="thumbnail-style thumbnail-kenburn">
             <div class="thumbnail-img">
                 <div class="overflow-hidden">
-                    {{ HTML::image( '/assets/img/carousel/e5.jpg', 'Ecies.co.uk' ) }}
+                    {{ HTML::image( $values->image, $values->title ) }}
                 </div>
                 <a class="btn-more hover-effect" href="#">read more +</a>
             </div>
-            <h3><a class="hover-effect" href="#">Our Work</a></h3>
-            <p>ECIES development team have a huge amount of collective experience having delivered numerous projects for different clients.</p>
+            <h3><a class="hover-effect" href="#">{{$values->title}}</a></h3>
+            <p> {{ $values->short_description }}</p>
         </div>
     </li>
-    <li class="span3">
-        <div class="thumbnail-style thumbnail-kenburn">
-            <div class="thumbnail-img">
-                <div class="overflow-hidden">
-                    {{ HTML::image( '/assets/img/carousel/e4.png', 'Ecies.co.uk' ) }}
-                </div>
-                <a class="btn-more hover-effect" href="#">read more +</a>
-            </div>
-            <h3><a class="hover-effect" href="#">One More Work</a></h3>
-            <p>ECIES development team have a huge amount of collective experience having delivered numerous projects for different clients.</p>
-        </div>
-    </li>
-    <li class="span3">
-        <div class="thumbnail-style thumbnail-kenburn">
-            <div class="thumbnail-img">
-                <div class="overflow-hidden">
-                    {{ HTML::image( '/assets/img/carousel/e3.png', 'Ecies.co.uk' ) }}
-                </div>
-                <a class="btn-more hover-effect" href="#">read more +</a>
-            </div>
-            <h3><a class="hover-effect" href="#">Another Work</a></h3>
-            <p>ECIES development team have a huge amount of collective experience having delivered numerous projects for different clients.</p>
-        </div>
-    </li>
-    <li class="span3">
-        <div class="thumbnail-style thumbnail-kenburn">
-            <div class="thumbnail-img">
-                <div class="overflow-hidden">
-                    {{ HTML::image( '/assets/img/carousel/e2.png', 'Ecies.co.uk' ) }}
-                </div>
-                <a class="btn-more hover-effect" href="#">read more +</a>
-            </div>
-            <h3><a class="hover-effect" href="#">Huge Work</a></h3>
-            <p>ECIES development team have a huge amount of collective experience having delivered numerous projects for different clients.</p>
-        </div>
-    </li>
+    @endforeach
+
 </ul><!--/thumbnails-->
 <!-- //End Recent Works -->
 
@@ -150,24 +117,15 @@
         <div class="headline"><h3>Latest Shots</h3></div>
         <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
-              <div class="item active">
-                  {{ HTML::image( '/assets/img/carousel/e1.png', 'Ecies.co.uk' ) }}
-                <div class="carousel-caption">
-                  <p>ECIES.co.UK</p>
-                </div>
-              </div>
-              <div class="item">
-                  {{ HTML::image( '/assets/img/carousel/e2.png', 'Ecies.co.uk' ) }}
-                <div class="carousel-caption">
-                  <p>ECIES.co.UK</p>
-                </div>
-              </div>
-              <div class="item">
-                  {{ HTML::image( '/assets/img/carousel/e3.png', 'Ecies.co.uk' ) }}
-                <div class="carousel-caption">
-                  <p>ECIES.co.UK</p>
-                </div>
-              </div>
+                @foreach($recent_work as $values)
+                  <div class="item {{$values->id >3 ? 'active' : ''}}">
+                      {{ HTML::image( $values->image, $values->title ) }}
+                    <div class="carousel-caption">
+                      <p>{{$values->title}}</p>
+                    </div>
+                  </div>
+                @endforeach
+
             </div>
 
             <div class="carousel-arrow">

@@ -106,20 +106,20 @@ Route::group( array('after' => 'auth'), function(){
     Route::group(['prefix' => 'admin'], function() {
 
         //Admin Login
-        Route::any("admin/login", [
-            "as"   => "admin/login",
+        Route::any("login", [
+            "as"   => "login",
             "uses" => "AdminController@login"
         ]);
 
         //admin dashboard
-        Route::any("admin/dashboard", [
-            "as"   => "admin/dashboard",
+        Route::any("dashboard", [
+            "as"   => "dashboard",
             "uses" => "AdminController@dashboard"
         ]);
 
 
         // Logout
-        Route::any("admin/logout", [
+        Route::any("logout", [
             "as"   => "admin/logout",
             "uses" => "AdminController@logout"
         ]);

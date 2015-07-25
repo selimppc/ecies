@@ -70,7 +70,7 @@
 <div class="box">
     <div class="content">
         <!-- Login Formular -->
-        {{ Form::open(array('url'=>'admin/login', 'method'=>'post', 'class'=>'form-vertical login-form')) }}
+        {{ Form::open(array('url'=>'login', 'method'=>'post', 'class'=>'form-vertical login-form')) }}
             <!-- Title -->
             <h3 class="form-title">Sign In to your Account</h3>
 

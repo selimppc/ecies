@@ -4,7 +4,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title> {{$pageTitle}} </title>
+    <title> @if(isset($pageTitle)) {{$pageTitle }} @else {{"Ecies"}} @endif </title>
 
     <!-- Meta -->
     <meta charset="utf-8" />
@@ -43,7 +43,7 @@
         <li class="devider">&nbsp;</li>
         <li><a href="{{ URL::route('faq') }}" class="login-btn">Help</a></li>
         <li class="devider">&nbsp;</li>
-        <li><a href="{{ URL::route('admin/login') }}" class="login-btn">Login</a></li>
+        <li><a href="{{ URL::route('login') }}" class="login-btn">Login</a></li>
     </ul>
 </div>
 </div><!--/top-->
