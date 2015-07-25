@@ -1,5 +1,17 @@
 @extends('layouts.master')
 @section('content')
+<style>
+    tbody
+    {
+        counter-reset: Serial;
+    }
+
+    tr td:first-child:before
+    {
+        counter-increment: Serial;
+        content: counter(Serial);
+    }
+</style>
 
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
@@ -18,14 +30,13 @@
         <div class="row-fluid">
             <div class="span12">
 
-                <div class="span12">
+                {{--<div class="span12">
                     {{ HTML::image( '/images/english_language/arabic.png', 'English Language' ) }}
-                </div>
+                </div>--}}
 
                 <div class="span12">
                     <div class="row-fluid">
                         <div class="span12">
-                            <div class="headline"><h3>Default Tables with Color Styles</h3></div>
                             <table class="table">
                                 <thead>
                                 <tr class="warning">
@@ -39,42 +50,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="error">
-                                    <td> 01 </td>
-                                    <td> TEACHING ENGLISH </td>
-                                    <td> ENLA1301 </td>
-                                    <td> 12 WEEKS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 02 </td>
-                                    <td> ESOL </td>
-                                    <td> ENLA1302 </td>
-                                    <td> 12 WEEKS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="error">
-                                    <td> 03 </td>
-                                    <td> TFTL </td>
-                                    <td> ENLA1303 </td>
-                                    <td> 12 WEEKS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 04 </td>
-                                    <td> TRANSLATION </td>
-                                    <td> ENLA1304 </td>
-                                    <td> 12 WEEKS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
+                                @foreach($data as $values)
+                                    <tr class="success">
+                                        <td>  </td>
+                                        <td> {{$values->title}} </td>
+                                        <td> {{$values->code}} </td>
+                                        <td> {{$values->length}} </td>
+                                        <td> {{$values->attend}} </td>
+                                        <td> <a href="{{ URL::route('registrations') }}" style="color: blue">
+                                                {{$values->information }}
+                                            </a>
+                                        </td>
+                                        <td> <a href="{{ URL::route('contact') }}" style="color: blue">
+                                                {{$values->contact}}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
 
 

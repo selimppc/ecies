@@ -45,12 +45,12 @@ Route::any("course/english-language", [
 ]);
 
 //CLIENT
-Route::any("client/service", [
-    "as"   => "client/service",
+Route::any("client-service", [
+    "as"   => "client-service",
     "uses" => "HomeController@service"
 ]);
-Route::any("client/student", [
-    "as"   => "client/student",
+Route::any("client-student", [
+    "as"   => "client-student",
     "uses" => "HomeController@student"
 ]);
 
@@ -82,7 +82,10 @@ Route::any("contact", [
     "as"   => "contact",
     "uses" => "HomeController@contact"
 ]);
-
+Route::any("store/contact", [
+    "as"   => "store/contact",
+    "uses" => "HomeController@store_contact"
+]);
 //others
 Route::any("privacy-policy", [
     "as"   => "privacy-policy",
@@ -101,15 +104,14 @@ Route::any("/faq", [
 ]);
 
 
+//Admin Login
+Route::any("admin/login", [
+    "as"   => "admin/login",
+    "uses" => "AdminController@login"
+]);
 
 Route::group( array('after' => 'auth'), function(){
     Route::group(['prefix' => 'admin'], function() {
-
-        //Admin Login
-        Route::any("login", [
-            "as"   => "login",
-            "uses" => "AdminController@login"
-        ]);
 
         //admin dashboard
         Route::any("dashboard", [

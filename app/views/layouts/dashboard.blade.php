@@ -79,6 +79,7 @@
                 $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
                 $('.debug-url').html('Delete URL: <strong>' + $(this).find('.danger').attr('href') + '</strong>');
             });
+
         });
     </script>
 
@@ -413,7 +414,13 @@
 </div>
 
 
-
-
+<script>
+    $(function () {
+        $('#nav li a').filter(function(){return this.href==location.href}).parent().addClass('current').siblings().removeClass('current')
+        $('#nav li a').click(function(){
+            $(this).parent().addClass('current').siblings().removeClass('current')
+        })
+    });
+</script>
 </body>
 </html>

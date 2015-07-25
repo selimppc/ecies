@@ -68,9 +68,15 @@
 
 <!-- Login Box -->
 <div class="box">
+    @if(Session::has('error'))
+        <div class="alert alert-error alert-dismissable" style="background-color: lightcoral; color: white; font-weight: bolder;">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <b>Error! </b> {{Session::get("error")}}</div>
+    @endif
+
     <div class="content">
         <!-- Login Formular -->
-        {{ Form::open(array('url'=>'login', 'method'=>'post', 'class'=>'form-vertical login-form')) }}
+        {{ Form::open(array('url'=>'admin/login', 'method'=>'post', 'class'=>'form-vertical login-form')) }}
             <!-- Title -->
             <h3 class="form-title">Sign In to your Account</h3>
 
@@ -82,16 +88,12 @@
 
             <!-- Input Fields -->
             <div class="form-group">
-                <!--<label for="username">Username:</label>-->
-                {{ $errors->first('username', '<div class="alert alert-danger"><b>:message</b></div>')  }}
                 <div class="input-icon">
                     <i class="icon-user"></i>
                     {{Form::text('username', null, ['class'=>'form-control', 'placeholder'=>'username', 'required'=>'required', 'autofocus', 'data-rule-required'=>'true',  'data-msg-required'=>'Please enter your username.' ])}}
                 </div>
             </div>
             <div class="form-group">
-                <!--<label for="password">Password:</label>-->
-                {{ $errors->first('password', '<div class="alert alert-danger"><b>:message</b></div>')  }}
                 <div class="input-icon">
                     <i class="icon-lock"></i>
                     {{Form::password('password', ['class'=>'form-control', 'placeholder'=>'password', 'required'=>'required', 'data-rule-required'=>'true',  'data-msg-required' => 'Please enter your password.' ])}}

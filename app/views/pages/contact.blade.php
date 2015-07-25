@@ -15,6 +15,7 @@
 
 <!-- Google Map -->
 <div id="map" class="map margin-bottom-40">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8304076018903!2d-0.12376939999999999!3d51.5163273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b336759915d%3A0x9e46454d5d41bd88!2sLondon+WC1N+3XX%2C+UK!5e0!3m2!1sen!2sbd!4v1437833680429" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div><!---/map-->
 <!-- End Google Map -->
 
@@ -23,15 +24,24 @@
     <div class="row-fluid">
         <div class="span9">
             <div class="headline"><h3>Contacts</h3></div>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas feugiat. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit landitiis.</p><br />
-            <form />
-            <label>Name</label>
-            <input type="text" class="span7 border-radius-none" />
-            <label>Email <span class="color-red">*</span></label>
-            <input type="text" class="span7 border-radius-none" />
-            <label>Message</label>
-            <textarea rows="8" class="span10"></textarea>
-            <p><button type="submit" class="btn-u">Send Message</button></p>
+            <p>GETTING IN TOUCH</p><br />
+            <form action="{{URL::route('store/contact')}}" method="post">
+                <label>Full Name<span class="color-red">*</span></label>
+                <input type="text" name="name" class="span7 border-radius-none" required="required" />
+
+                <label>Email Address<span class="color-red">*</span></label>
+                <input type="email" name="email" class="span7 border-radius-none" required="required" />
+
+                <label>Phone Number <span class="color-red">*</span></label>
+                <input type="text" name="phone" class="span7 border-radius-none" required="required" />
+
+                <label>Subject <span class="color-red">*</span></label>
+                <input type="text" name="subject" class="span7 border-radius-none" required="required" />
+
+                <label>Message <span class="color-red">*</span></label>
+                <textarea rows="5" name="message" class="span10" required="required" ></textarea>
+
+                <p><button type="submit" class="btn-u">Send Message</button></p>
             </form>
         </div><!--/span9-->
 
@@ -39,28 +49,32 @@
             <!-- Contacts -->
             <div class="headline"><h3>Contacts</h3></div>
             <ul class="unstyled who margin-bottom-20">
-                <li><a href="#"><i class="icon-home"></i>5B Streat, City 50987 New Town US</a></li>
-                <li><a href="#"><i class="icon-envelope-alt"></i>info@example.com</a></li>
-                <li><a href="#"><i class="icon-phone-sign"></i>1(222) 5x86 x97x</a></li>
-                <li><a href="#"><i class="icon-globe"></i>http://www.example.com</a></li>
+                <address>
+                    ECIES LTD <br />
+                    BM BOX 2364, LONDON <br />
+                    WC1N 3XX, UNITED KINGDOM <br />
+                    Phone: +44 (0)20 7419 5927 <br />
+                    Email: <a href="mailto:SALES@ECIES.CO.UK" class="">SALES@ECIES.CO.UK</a>
+                </address>
+
+                <address>
+                    <b> COMPANY INFORMATION: </b> <br />
+                    COMPANY NUMBER: 8783269 <br />
+                    VAT NUMBER: GB 1319966 <br />
+                </address>
+
+                <address>
+                    VISIT: TO VISIT A OFFICE YOU MUST MAKE AN APPOINTMENT.<br />
+                    APPOINTMENT ARE AVAILABLE
+                </address>
+
+                <address>
+                    MONDAY - FRIDAY BETWEEN 10AM - 12AM ( EXCLUDING PUBLIC HOLIDAYS)<br /><br />
+                    <b> NORMAL BUSINESS HOURS: </b> <br />
+                    MONDAY - FRIDAY BETWEEN 9AM - 5PM ( EXCLUDING PUBLIC HOLIDAYS)
+                </address>
             </ul>
 
-            <!-- Business Hours -->
-            <div class="headline"><h3>Business Hours</h3></div>
-            <ul class="unstyled">
-                <li><strong>Monday-Friday:</strong> 10am to 8pm</li>
-                <li><strong>Saturday:</strong> 11am to 3pm</li>
-                <li><strong>Sunday:</strong> Closed</li>
-            </ul>
-
-            <!-- Why we are? -->
-            <div class="headline"><h3>Why we are?</h3></div>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-            <ul class="unstyled">
-                <li><i class="icon-ok color-green"></i> Odio dignissimos ducimus</li>
-                <li><i class="icon-ok color-green"></i> Blanditiis praesentium volup</li>
-                <li><i class="icon-ok color-green"></i> Eos et accusamus</li>
-            </ul>
         </div><!--/span3-->
     </div><!--/row-fluid-->
 

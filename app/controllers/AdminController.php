@@ -3,7 +3,7 @@
 class AdminController extends \BaseController {
 
     function __construct() {
-        $this->beforeFilter('userAuth', array('except' => array('login')));
+        $this->beforeFilter('checkAuth', array('except' => array('login')));
     }
 
     protected function isPostRequest()
@@ -34,17 +34,19 @@ class AdminController extends \BaseController {
 
                     return Redirect::to("admin/dashboard");
                 }else{
-                  return Redirect::to("user/dashboard");
+                  Session::flash('error', "Username / Password invalid.");
+                  return Redirect::to("admin/login");
                 }
                 return Redirect::back()->withErrors([
                     "password" => ["Username / Password invalid."]
                 ]);
             }else{
+                Session::flash('error', "Username / Password invalid.");
                 return Redirect::back()->withInput()->withErrors($validator);
             }
         }else{
             if(Auth::check()){
-                return Redirect::to("user/dashboard");
+                return Redirect::to("admin/dashboard");
             }
             $pageTitle = "Login  | Ecies | excellence in the training & consultancy services in UK ";
             return View::make('admin.login', compact('pageTitle'));

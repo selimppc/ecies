@@ -1,6 +1,19 @@
 @extends('layouts.master')
 @section('content')
 
+<style>
+    tbody
+    {
+        counter-reset: Serial;
+    }
+
+    tr td:first-child:before
+    {
+        counter-increment: Serial;
+        content: counter(Serial);
+    }
+</style>
+
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
         <div class="container">
@@ -18,14 +31,13 @@
         <div class="row-fluid">
             <div class="span12">
 
-                <div class="span12">
+                {{--<div class="span12">
                     {{ HTML::image( '/images/communication_it/answer_phone.png', 'web design' ) }}
-                </div>
+                </div>--}}
 
                 <div class="span12">
                     <div class="row-fluid">
                         <div class="span12">
-                            <div class="headline"><h3>Default Tables with Color Styles</h3></div>
                             <table class="table">
                                 <thead>
                                 <tr class="warning">
@@ -39,135 +51,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="error">
-                                    <td> 2 </td>
-                                    <td> BUSINESS INFORMATION SYSTEMS </td>
-                                    <td> COIT1302 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
+                                @foreach($data as $values)
                                 <tr class="success">
-                                    <td> 3 </td>
-                                    <td> DATA WAREHOSUING </td>
-                                    <td> COIT1303 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
+                                    <td>  </td>
+                                    <td> {{$values->title}} </td>
+                                    <td> {{$values->code}} </td>
+                                    <td> {{$values->length}} </td>
+                                    <td> {{$values->attend}} </td>
+                                    <td> <a href="{{ URL::route('registrations') }}" style="color: blue">
+                                            {{$values->information }}
+                                        </a>
+                                    </td>
+                                    <td> <a href="{{ URL::route('contact') }}" style="color: blue">
+                                            {{$values->contact}}
+                                         </a>
+                                    </td>
                                 </tr>
-                                <tr class="error">
-                                    <td> 4 </td>
-                                    <td> DATABASE MANAGEMENT </td>
-                                    <td> COIT130 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 5 </td>
-                                    <td> INFORMATION MANAGEMENT </td>
-                                    <td> COIT1305 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="info">
-                                    <td> 6 </td>
-                                    <td> INFORMATION SECURITY </td>
-                                    <td> COIT1306 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="error">
-                                    <td> 7 </td>
-                                    <td> COMPTIA CERTIFICATIONS </td>
-                                    <td> COIT1307 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 8 </td>
-                                    <td> HELPDESK OPERATION MANAGEMENT </td>
-                                    <td> COIT1308 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="error">
-                                    <td> 9 </td>
-                                    <td> NETWORK SYSTEMS MANAGEMENT SOFTWARE </td>
-                                    <td> COIT1309 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 10 </td>
-                                    <td> DISASTER CONTINGENCY PLANNING </td>
-                                    <td> COIT1310 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="error">
-                                    <td> 11 </td>
-                                    <td> IT SUPPORT MANAGEMENT </td>
-                                    <td> COIT1311 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 12 </td>
-                                    <td> SOFTWARE QUALITY ASSURANCE </td>
-                                    <td> COIT1312 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="error">
-                                    <td> 13 </td>
-                                    <td> AGIRCULTURE CATERING LEISURE SERVICES SOFTWARE </td>
-                                    <td> COIT1313 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="success">
-                                    <td> 14 </td>
-                                    <td> HEALTH SCIENCES ENVIROMENT SOFTWARE </td>
-                                    <td> COIT1314 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-                                <tr class="error">
-                                    <td> 15 </td>
-                                    <td> COMPUTER FILE MANAGEMENT</td>
-                                    <td> COIT1315 </td>
-                                    <td> 5 DAYS </td>
-                                    <td> FULL TIME </td>
-                                    <td> REQUEST </td>
-                                    <td> EMAIL </td>
-                                </tr>
-
-
-
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

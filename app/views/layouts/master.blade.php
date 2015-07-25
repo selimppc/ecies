@@ -27,7 +27,11 @@
 <!-- CSS Theme -->
     {{ HTML::style('assets/css/themes/default.css') }} {{-- id="style_color"--}}
     {{ HTML::style('assets/css/themes/headers/default.css') }} {{-- id="style_color-header-1" --}}
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+</head>
 
 <body>
 
@@ -43,7 +47,7 @@
         <li class="devider">&nbsp;</li>
         <li><a href="{{ URL::route('faq') }}" class="login-btn">Help</a></li>
         <li class="devider">&nbsp;</li>
-        <li><a href="{{ URL::route('login') }}" class="login-btn">Login</a></li>
+        <li><a href="{{ URL::route('admin/login') }}" class="login-btn">Login</a></li>
     </ul>
 </div>
 </div><!--/top-->
@@ -69,7 +73,7 @@
             </a><!-- /nav-collapse -->
             <div class="nav-collapse collapse">
                 <ul class="nav top-2">
-                    <li class="active">
+                    <li>
                         <a href="{{ URL::route('index') }}" >Home </a>
                     </li>
                     <li>
@@ -99,8 +103,8 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ URL::route('client/service') }}">Service</a></li>
-                            <li><a href="{{ URL::route('client/student') }}">Student</a></li>
+                            <li><a href="{{ URL::route('client-service') }}">Service</a></li>
+                            <li><a href="{{ URL::route('client-student') }}">Student</a></li>
                         </ul>
                         <b class="caret-out"></b>
                     </li>
@@ -258,6 +262,15 @@ jQuery(document).ready(function() {
 <!--[if lt IE 9]>
 {{ HTML::script('assets/js/respond.js')}}
 <![endif]-->
+
+<script>
+    $(function () {
+        $('.nav li a').filter(function(){return this.href==location.href}).parent().addClass('active').siblings().removeClass('active')
+        $('.nav li a').click(function(){
+            $(this).parent().addClass('active').siblings().removeClass('active')
+        })
+    });
+</script>
 
 </body>
 </html>

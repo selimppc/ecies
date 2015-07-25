@@ -25,48 +25,56 @@ class HomeController extends BaseController {
     // Solution / ICT Support
     public function ict_support() {
         $pageTitle = "ICT Support | excellence in the training & consultancy services in UK ";
-        return View::make('pages.ict_support', compact('pageTitle'));
+        $data = Post::where('type', 'ict-support')->latest('id')->first();
+        return View::make('pages.ict_support', compact('pageTitle', 'data'));
     }
 
     // Solution / Security
     public function security() {
         $pageTitle = "Security | excellence in the training & consultancy services in UK ";
-        return View::make('pages.solution_security', compact('pageTitle'));
+        $data = Post::where('type', 'security')->latest('id')->first();
+        return View::make('pages.solution_security', compact('pageTitle', 'data'));
     }
 
     // Solution / Consultancy
     public function consultancy() {
         $pageTitle = "Consultancy | excellence in the training & consultancy services in UK ";
-        return View::make('pages.solution_consultancy', compact('pageTitle'));
+        $data = Post::where('type', 'consultancy')->latest('id')->first();
+        return View::make('pages.solution_consultancy', compact('pageTitle', 'data'));
     }
 
     public function web_design() {
         $pageTitle = "Web Design | excellence in the training & consultancy services in UK ";
-        return View::make('pages.web_design', compact('pageTitle'));
+        $data = Post::where('type', 'web-design')->latest('id')->first();
+        return View::make('pages.web_design', compact('pageTitle', 'data'));
     }
 
     //Course / Communication IT
     public function communication_it() {
         $pageTitle = "Communication IT | excellence in the training & consultancy services in UK ";
-        return View::make('pages.communication_it', compact('pageTitle'));
+        $data = Course::where('type', 'communication-it')->latest('id')->get();
+        return View::make('pages.communication_it', compact('pageTitle', 'data'));
     }
 
     //Course / English Language
     public function english_language() {
         $pageTitle = "English Language | excellence in the training & consultancy services in UK ";
-        return View::make('pages.english_language', compact('pageTitle'));
+        $data = Course::where('type', 'english-language')->latest('id')->get();
+        return View::make('pages.english_language', compact('pageTitle', 'data'));
     }
 
     //Client / Service
     public function service() {
         $pageTitle = "Service | excellence in the training & consultancy services in UK ";
-        return View::make('pages.client_service', compact('pageTitle'));
+        $data = Post::where('type', 'client-service')->latest('id')->first();
+        return View::make('pages.client_service', compact('pageTitle', 'data'));
     }
 
     //Client / Student
     public function student() {
         $pageTitle = "Student | excellence in the training & consultancy services in UK ";
-        return View::make('pages.client_student', compact('pageTitle'));
+        $data = Post::where('type', 'client-student')->latest('id')->first();
+        return View::make('pages.client_student', compact('pageTitle', 'data'));
     }
 
     // Registration
@@ -102,32 +110,61 @@ class HomeController extends BaseController {
     // Ecies/Overview
     public function overview() {
         $pageTitle = "Overview | excellence in the training & consultancy services in UK ";
-        return View::make('pages.overview', compact('pageTitle'));
+        $data = Post::where('type', 'ecies-overview')->latest('id')->first();
+        return View::make('pages.overview', compact('pageTitle', 'data'));
     }
 
 
     // Ecies/Partner
     public function partner() {
         $pageTitle = "Partner | excellence in the training & consultancy services in UK ";
-        return View::make('pages.partner', compact('pageTitle'));
+        $data = Post::where('type', 'ecies-partner')->latest('id')->first();
+        return View::make('pages.partner', compact('pageTitle', 'data'));
     }
 
     // Ecies/Career
     public function career() {
         $pageTitle = " Career | excellence in the training & consultancy services in UK ";
-        return View::make('pages.career', compact('pageTitle'));
+        $data = Post::where('type', 'ecies-career')->latest('id')->first();
+        return View::make('pages.career', compact('pageTitle', 'data'));
     }
 
     // Ecies/Contact
     public function contact() {
         $pageTitle = "Contact | excellence in the training & consultancy services in UK ";
+        $data = Post::where('type', 'web-design')->latest('id')->first();
         return View::make('pages.contact', compact('pageTitle'));
+    }
+
+    public function store_contact(){
+        if($this->isPostRequest()){
+            $input_data = Input::all(); // input all data
+            $model = new Contact();
+
+            //save data into
+            if($model->validate($input_data)) {
+                DB::beginTransaction();
+                try {
+                    $model->create($input_data);
+                    DB::commit();
+                    Session::flash('message', 'Submitted Successfully ! We will get back to you soon.');
+                }catch (Exception $e) {
+                    //If there are any exceptions, rollback the transaction`
+                    DB::rollback();
+                    Session::flash('danger', 'Failed !');
+                }
+            }
+        }else{
+            Session::flash('danger', 'Invalid Request !');
+        }
+        return Redirect::back();
     }
 
 
     // FAQ's
     public function faq() {
         $pageTitle = "FAQ  | Ecies | excellence in the training & consultancy services in UK ";
+        $data = Post::where('type', 'web-design')->latest('id')->first();
         return View::make('pages.faq', compact('pageTitle'));
     }
 

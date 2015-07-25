@@ -58,6 +58,19 @@ Route::filter('auth', function()
 
 });
 
+Route::filter('checkAuth', function()
+{
+	if (Auth::guest())
+	{
+		if (Request::ajax()){
+			return Response::make('Unauthorized', 401);
+		}else{
+			return Redirect::guest('admin/login');
+		}
+	}
+
+});
+
 
 Route::filter('auth.basic', function()
 {
