@@ -89,12 +89,13 @@
                         <b class="caret-out"></b>
                     </li>
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Course
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Training
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ URL::route('communication-it') }}">Communication & IT</a></li>
-                            <li><a href="{{ URL::route('english-language') }}">ENGLISH Language</a></li>
+                            <li><a href="{{ URL::route('english-language') }}">English Language</a></li>
+                            <li><a href="{{ URL::route('registrations') }}" >Registration </a></li>
                         </ul>
                         <b class="caret-out"></b>
                     </li>
@@ -108,11 +109,11 @@
                         </ul>
                         <b class="caret-out"></b>
                     </li>
+                    {{--<li>--}}
+                        {{--<a href="{{ URL::route('registrations') }}" >Registration </a>--}}
+                    {{--</li>--}}
                     <li>
-                        <a href="{{ URL::route('registrations') }}" >Registration </a>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ECIES
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ecies
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -179,8 +180,8 @@
     <div class="row-fluid">
         <div class="span8">
             <!-- About -->
-            <div class="headline"><h3>About ECIES.co.UK</h3></div>
-            <p class="margin-bottom-25">ECIES is private limited company, it is based in London United Kingdom. It provides Training and Consultancy services for not-for-profit organizations, small and medium-sized enterprises, Started it operations in 2011.</p>
+            <div class="headline"><h3>About Ecies.co.UK</h3></div>
+            <p class="margin-bottom-25">Ecies is private limited company, it is based in London United Kingdom. It provides Training and Consultancy services for not-for-profit organizations, small and medium-sized enterprises, Started it operations in 2011.</p>
 
             <!-- Monthly Newsletter -->
             <div class="headline"><h3>Monthly Newsletter</h3></div>
@@ -199,11 +200,11 @@
             <!-- Monthly Newsletter -->
             <div class="headline"><h3>Contact Us</h3></div>
             <address>
-                ECIES LTD <br />
-                BM BOX 2364, LONDON <br />
-                WC1N 3XX, UNITED KINGDOM <br />
+                Ecies Ltd <br />
+                BM BOX 2364, London <br />
+                WC1N 3XX, United Kingdom <br />
                 Phone: +44 (0)20 7419 5927 <br />
-                Email: <a href="mailto:SALES@ECIES.CO.UK" class="">SALES@ECIES.CO.UK</a>
+                Email: <a href="mailto:sales@ecies.co.uk" class="">sales@ecies.co.uk</a>
             </address>
 
             <!-- Stay Connected -->
@@ -225,7 +226,7 @@
 <div class="container">
     <div class="row-fluid">
         <div class="span8">
-            <p>2015 &copy; ECIES.co.UK ALL Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p>2015 &copy; Ecies.co.uk All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
         <div class="span4">
             <a href="{{ URL::route('index') }}">

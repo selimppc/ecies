@@ -19,7 +19,7 @@
             <div class="span12">
 
                 <div class="span12">
-                    {{ HTML::image( $data->image, $data->title ) }}
+                    {{ HTML::image( $data->image, $data->title, ['class'=>'img-size'] ) }}
                 </div>
                 <p>&nbsp; </p>
                 <div class="span12">

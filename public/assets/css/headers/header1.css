@@ -175,7 +175,7 @@
 	color: #687074;
 	text-shadow:none;
 	padding:9px 20px;
-	text-transform:uppercase;
+	text-transform:capitalize;
 	border-bottom:solid 2px #eee;
 	font-family:'Open Sans', sans-serif;
     -webkit-transition:all 0.4s ease-in-out;

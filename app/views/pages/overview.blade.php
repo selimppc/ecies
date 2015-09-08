@@ -17,12 +17,10 @@
 <!--=== Content Part ===-->
 <div class="container">
     <div class="row-fluid margin-bottom-30">
-        <div class="span6">
+        <div class="span12">
             {{$data->description}}
         </div>
-        <div class="span6">
-            <iframe src="http://player.vimeo.com/video/9679622" width="100%" height="327" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-        </div>
+
     </div><!--/row-fluid-->
 
 

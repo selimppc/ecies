@@ -1856,3 +1856,11 @@ i.style-switcher-btn-option:hover {
 	padding: 7px;
 	text-shadow: none !important;
 }
+
+
+/* Custom CSS*/
+.img-size{
+	width: 40%;
+	border: 1px solid #999;
+	padding: 0.5%;
+}
