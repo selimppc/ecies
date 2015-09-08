@@ -24,7 +24,7 @@
     <div class="row-fluid">
         <div class="span9">
             <div class="headline"><h3>Contacts</h3></div>
-            <p>GETTING IN TOUCH</p><br />
+            <p>Getting in Touch</p><br />
             <form action="{{URL::route('store/contact')}}" method="post">
                 <label>Full Name<span class="color-red">*</span></label>
                 <input type="text" name="name" class="span7 border-radius-none" required="required" />
@@ -50,28 +50,28 @@
             <div class="headline"><h3>Contacts</h3></div>
             <ul class="unstyled who margin-bottom-20">
                 <address>
-                    ECIES LTD <br />
-                    BM BOX 2364, LONDON <br />
-                    WC1N 3XX, UNITED KINGDOM <br />
+                    ecie ltd <br />
+                    BM BOX 2364, London <br />
+                    WC1N 3XX, United Kingdom <br />
                     Phone: +44 (0)20 7419 5927 <br />
-                    Email: <a href="mailto:SALES@ECIES.CO.UK" class="">SALES@ECIES.CO.UK</a>
+                    Email: <a href="mailto:SALES@ECIES.CO.UK" class="">sales@ecies.co.uk</a>
                 </address>
 
                 <address>
-                    <b> COMPANY INFORMATION: </b> <br />
-                    COMPANY NUMBER: 8783269 <br />
-                    VAT NUMBER: GB 1319966 <br />
+                    <b> Company Information: </b> <br />
+                    Company Number: 8783269 <br />
+                    VAT number: GB 1319966 <br />
                 </address>
 
                 <address>
-                    VISIT: TO VISIT A OFFICE YOU MUST MAKE AN APPOINTMENT.<br />
-                    APPOINTMENT ARE AVAILABLE
+                    Visit: To visit a office you must make an appointment.<br />
+                    Appointment are available.
                 </address>
 
                 <address>
-                    MONDAY - FRIDAY BETWEEN 10AM - 12AM ( EXCLUDING PUBLIC HOLIDAYS)<br /><br />
-                    <b> NORMAL BUSINESS HOURS: </b> <br />
-                    MONDAY - FRIDAY BETWEEN 9AM - 5PM ( EXCLUDING PUBLIC HOLIDAYS)
+                    Monday - Friday between 10AM - 12AM ( excluding public holidays)<br /><br />
+                    <b> Normal business hours: </b> <br />
+                    Monday - Friday 9AM - 5PM ( excluding public holidays )
                 </address>
             </ul>
 
