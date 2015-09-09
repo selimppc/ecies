@@ -314,6 +314,21 @@
                 </ul>
             </li>
 
+            <!--=== Registered Person/Course ===-->
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-folder-open-alt"></i>
+                    Help
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{URL::route('index-faq')}}"> <i class="icon-angle-right"></i>
+                            FAQ / Help
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
 
         <!-- /Navigation -->

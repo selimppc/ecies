@@ -466,4 +466,70 @@ class AdminController extends \BaseController {
 
 
 
+
+    /*
+     *
+     * FAQ or Help Section
+     *
+     */
+
+    public function faq_index(){
+        $pageTitle = "FAQ's ";
+        $data = Faq::latest('id')->get();
+        return View::make('admin.faq.index', compact('data','pageTitle'));
+    }
+
+
+    public function faq_store(){
+        if($this->isPostRequest()){
+
+            $input_data = Input::all(); // input all data
+            $model = Input::get('id') ? Faq::find(Input::get('id')) : new Faq(); // call model
+
+            //set data
+            $model->title = $input_data['title'];
+            $model->description = $input_data['description'];
+
+            //save data into
+            if($model->validate($input_data)) {
+                DB::beginTransaction();
+                try {
+                    $model->save();
+                    DB::commit();
+                    Session::flash('message', 'Success !');
+                }catch (Exception $e) {
+                    //If there are any exceptions, rollback the transaction`
+                    DB::rollback();
+                    Session::flash('danger', 'Failed !');
+                }
+            }
+        }else{
+            Session::flash('danger', 'Invalid Request !');
+        }
+        return Redirect::back();
+    }
+
+    public function view_faq($id){
+        $data = Faq::where('id', $id)->first();
+        return View::make('admin.faq.show', compact('data'));
+    }
+
+    public function edit_faq($id){
+        $pageTitle = " Edit FAQ / Help";
+        $model = Faq::find($id);
+        return View::make('admin.faq.edit', compact('model','pageTitle'));
+    }
+
+    public function destroy_faq($id)
+    {
+        // delete
+        $employee = Faq::find($id);
+        $employee->delete();
+        // redirect
+        Session::flash('message', 'Successfully deleted!');
+        return Redirect::back();
+    }
+
+
+
 }

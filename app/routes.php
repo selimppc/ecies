@@ -340,6 +340,42 @@ Route::group( array('after' => 'auth'), function(){
      ]);
 
 
+        /*
+         *
+         *  FAQ / Help
+         *
+         *
+         */
+        // Index FAQ
+        Route::any("index-faq", [
+            "as"   => "index-faq",
+            "uses" => "AdminController@faq_index"
+        ]);
+
+        // View  FAQ
+        Route::any("view-faq/{id}", [
+            "as"   => "view-faq",
+            "uses" => "AdminController@view_faq"
+        ]);
+
+
+        // edit FAQ
+        Route::any("edit-faq/{id}", [
+            "as"   => "edit-faq",
+            "uses" => "AdminController@edit_faq"
+        ]);
+
+        // destroy FAQ
+        Route::any("destroy-faq/{id}", [
+            "as"   => "destroy-faq",
+            "uses" => "AdminController@destroy_faq"
+        ]);
+
+        Route::any("store-faq", [
+            "as"   => "store-faq",
+            "uses" => "AdminController@faq_store"
+        ]);
+
 
 
 

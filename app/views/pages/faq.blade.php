@@ -94,7 +94,7 @@
             <div class="headline"><h3>Business Hours</h3></div>
             <ul class="unstyled">
                 <li><strong>Monday-Friday:</strong> 10am to 8pm</li>
-                <li><strong>Saturday:</strong> 11am to 3pm</li>
+                <li><strong>Saturday:</strong> Closed</li>
                 <li><strong>Sunday:</strong> Closed</li>
             </ul>
 
