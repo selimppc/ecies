@@ -102,7 +102,7 @@
                         <b class="caret-out"></b>
                     </li>
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Education Technologies
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">

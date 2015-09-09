@@ -16,6 +16,12 @@ Route::any("/", [
     "uses" => "HomeController@index"
 ]);
 
+// Details of Recent work
+Route::any("home-recent-work/{id}", [
+    "as"   => "home-recent-work",
+    "uses" => "HomeController@home_recent_work_view"
+]);
+
 //Solution
 Route::any("solution/ict-support", [
     "as"   => "ict-support",
@@ -374,6 +380,38 @@ Route::group( array('after' => 'auth'), function(){
         Route::any("store-faq", [
             "as"   => "store-faq",
             "uses" => "AdminController@faq_store"
+        ]);
+
+
+
+
+        /*
+         *  Image Slider
+         */
+        // Index slider
+        Route::any("index-slider", [
+            "as"   => "index-slider",
+            "uses" => "AdminController@slider_index"
+        ]);
+        // View  slider
+        Route::any("view-slider/{id}", [
+            "as"   => "view-slider",
+            "uses" => "AdminController@view_slider"
+        ]);
+        // edit slider
+        Route::any("edit-slider/{id}", [
+            "as"   => "edit-slider",
+            "uses" => "AdminController@edit_slider"
+        ]);
+        // destroy slider
+        Route::any("destroy-slider/{id}", [
+            "as"   => "destroy-slider",
+            "uses" => "AdminController@destroy_slider"
+        ]);
+
+        Route::any("store-slider", [
+            "as"   => "store-slider",
+            "uses" => "AdminController@slider_store"
         ]);
 
 

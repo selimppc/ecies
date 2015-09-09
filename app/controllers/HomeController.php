@@ -14,12 +14,22 @@ class HomeController extends BaseController {
         $data_ict_workshop = Post::where('type', 'ict-workshop')->latest('id')->first();
         $ecies_overview = Post::where('type', 'ecies-overview')->latest('id')->first();
         $recent_work = RecentWork::latest('id')->take(4)->get();
+        $slider = Slider::latest('id')->take(3)->get();
 
         $pageTitle = "Ecies | excellence in the training & consultancy services in UK ";
         return View::make('pages.index', compact(
             'pageTitle', 'data_security', 'data_consultancy', 'data_ict_workshop',
-            'ecies_overview', 'recent_work'
+            'ecies_overview', 'recent_work', 'slider'
         ));
+    }
+
+    /*
+     * Recent Work in Details
+     */
+    public function home_recent_work_view($id){
+        $pageTitle = "Excellence in the training & consultancy services in UK ";
+        $data = RecentWork::where('id', $id)->first();
+        return View::make('pages.show_recent_work', compact('pageTitle', 'data'));
     }
 
     // Solution / ICT Support

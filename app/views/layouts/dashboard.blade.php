@@ -182,6 +182,12 @@
                             ICT Workshop
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{URL::route('index-slider')}}"> <i class="icon-angle-right"></i>
+                            Image Slider
+                        </a>
+                    </li>
                 </ul>
             </li>
 

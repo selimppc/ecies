@@ -532,4 +532,92 @@ class AdminController extends \BaseController {
 
 
 
+    /*
+     *
+     * Image Slider
+     *
+     */
+
+    public function slider_index(){
+        $pageTitle = "Image Slider | Homepage ";
+        $data = Slider::latest('id')->get();
+        return View::make('admin.slider.index', compact('data','pageTitle'));
+    }
+
+
+    public function slider_store(){
+        if($this->isPostRequest()){
+
+            $input_data = Input::all(); // input all data
+            $model = Input::get('id') ? Slider::find(Input::get('id')) : new Slider(); // call model
+
+            //set data
+            $image = $input_data['image']; // $image variable
+            $model->title = $input_data['title'];
+            $model->description = $input_data['description'];
+
+            // Image save
+            if (Input::hasFile('image')){
+                // Images destination
+                $img_dir = "images/slider/";
+                $img_thumb_dir = $img_dir."thumb/";
+                // Create folders if they don't exist
+
+                if (!file_exists($img_dir)) {
+                    mkdir($img_dir, 0777, true);
+                    mkdir($img_thumb_dir, 0777, true);
+                }
+
+                $filename = $image->getClientOriginalName();
+                $pathL = $img_dir.$filename;
+                $pathS = $img_thumb_dir.$filename;
+                Image::make($image->getRealPath())->resize(900, 600)->save($pathL);
+                Image::make($image->getRealPath())->resize(60, 60)->save($pathS);
+
+                $model->image = "images/slider/".$filename;
+                $model->thumb = "images/slider/thumb/".$filename;
+            }
+
+            //save data into
+            if($model->validate($input_data)) {
+                DB::beginTransaction();
+                try {
+                    $model->save();
+                    DB::commit();
+                    Session::flash('message', 'Success !');
+                }catch (Exception $e) {
+                    //If there are any exceptions, rollback the transaction`
+                    DB::rollback();
+                    Session::flash('danger', 'Failed !');
+                }
+            }
+        }else{
+            Session::flash('danger', 'Invalid Request !');
+        }
+        return Redirect::back();
+    }
+
+    public function view_slider($id){
+        $data = Slider::where('id', $id)->first();
+        return View::make('admin.slider.show', compact('data'));
+    }
+
+    public function edit_slider($id){
+        $pageTitle = " Edit FAQ / Help";
+        $model = Slider::find($id);
+        return View::make('admin.slider.edit', compact('model','pageTitle'));
+    }
+
+    public function destroy_slider($id)
+    {
+        // delete
+        $model = Slider::find($id);
+        $model->delete();
+        // redirect
+        Session::flash('message', 'Successfully deleted!');
+        return Redirect::back();
+    }
+
+
+
 }
