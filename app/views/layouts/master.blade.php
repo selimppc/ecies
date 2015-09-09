@@ -93,9 +93,11 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ URL::route('communication-it') }}">Communication & IT</a></li>
-                            <li><a href="{{ URL::route('english-language') }}">English Language</a></li>
+                            <li><a href="{{ URL::route('communication-it') }}"> Course </a></li>
+                            {{--<li><a href="{{ URL::route('english-language') }}">English Language</a></li>--}}
                             <li><a href="{{ URL::route('registrations') }}" >Registration </a></li>
+                            <li><a href="{{ URL::route('client-service') }}">Service</a></li>
+                            <li><a href="{{ URL::route('client-student') }}">Student</a></li>
                         </ul>
                         <b class="caret-out"></b>
                     </li>
@@ -104,8 +106,8 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ URL::route('client-service') }}">Service</a></li>
-                            <li><a href="{{ URL::route('client-student') }}">Student</a></li>
+                            {{--<li><a href="{{ URL::route('client-service') }}">Service</a></li>
+                            <li><a href="{{ URL::route('client-student') }}">Student</a></li>--}}
                         </ul>
                         <b class="caret-out"></b>
                     </li>
@@ -118,7 +120,6 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ URL::route('overview') }}">Overview</a></li>
-                            <li><a href="{{ URL::route('partner') }}">Partner</a></li>
                             <li><a href="{{ URL::route('career') }}">Career</a></li>
                             <li><a href="{{ URL::route('contact') }}">Contact</a></li>
                         </ul>

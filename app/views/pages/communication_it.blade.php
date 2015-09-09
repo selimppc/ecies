@@ -17,10 +17,10 @@
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
         <div class="container">
-            <h1 class="color-green pull-left">Communication It</h1>
+            <h1 class="color-green pull-left">Course </h1>
             <ul class="pull-right breadcrumb">
                 <li><a href="{{ URL::route('index') }}">Home</a> <span class="divider">/</span></li>
-                <li class="active">Communication It</li>
+                <li class="active">Course</li>
             </ul>
         </div><!--/container-->
     </div><!--/breadcrumbs-->

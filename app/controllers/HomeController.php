@@ -51,7 +51,7 @@ class HomeController extends BaseController {
 
     //Course / Communication IT
     public function communication_it() {
-        $pageTitle = "Communication IT | excellence in the training & consultancy services in UK ";
+        $pageTitle = "Courses | excellence in the training & consultancy services in UK ";
         $data = Course::where('type', 'communication-it')->latest('id')->get();
         return View::make('pages.communication_it', compact('pageTitle', 'data'));
     }
@@ -164,8 +164,8 @@ class HomeController extends BaseController {
     // FAQ's
     public function faq() {
         $pageTitle = "FAQ  | Ecies | excellence in the training & consultancy services in UK ";
-        $data = Post::where('type', 'web-design')->latest('id')->first();
-        return View::make('pages.faq', compact('pageTitle'));
+        $data = Faq::latest('id')->get();
+        return View::make('pages.faq', compact('pageTitle', 'data'));
     }
 
 }

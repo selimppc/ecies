@@ -11,6 +11,7 @@ return array(
     'Contact' => $baseDir . '/app/models/Contact.php',
     'Course' => $baseDir . '/app/models/Course.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
+    'Faq' => $baseDir . '/app/models/Faq.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'Normalizer' => $vendorDir . '/patchwork/utf8/src/Normalizer.php',
