@@ -18,14 +18,11 @@
         <div class="row-fluid">
             <div class="span12">
 
-                <div class="span12">
-                    {{ HTML::image( $data->image, $data->title, ['class'=>'img-size'] ) }}
-                </div>
-                <p>&nbsp;</p>
 
                 <div class="span12">
                     <p style="text-align: justify">
-                        {{ $data->description }}
+                        {{ HTML::image( $data->image, $data->title, ['class'=>'img-size', 'align'=>'right'] ) }}
+                        {{$data->description}}
                     </p>
                 </div>
 

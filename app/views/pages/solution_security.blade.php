@@ -23,6 +23,7 @@
         </div>--}}
 
         <div class="span12">
+            {{ HTML::image( $data->image, $data->title, ['class'=>'img-size', 'align'=>'right'] ) }}
             {{$data->description}}
         </div>
 

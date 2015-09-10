@@ -17,15 +17,10 @@
     <div class="container">
         <div class="row-fluid">
             <div class="span12">
-                {{--<div class="headline"><h3> {{$data->title}} </h3></div>--}}
 
-                {{--<div class="span12">
-                    {{ HTML::image( $data->image, $data->title ) }}
-                </div>--}}
+                    {{ HTML::image( $data->image, $data->title, ['class'=>'img-size', 'align'=>'right'] ) }}
+                    {{$data->description}}
 
-                <div class="span12">
-                    <p>{{ $data->description }}</p>
-                </div>
 
             </div><!--/span9-->
 

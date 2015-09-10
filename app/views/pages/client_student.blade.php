@@ -19,11 +19,9 @@
             <div class="span12">
 
                 <div class="span12">
-                    {{ HTML::image( $data->image, $data->title, ['class'=>'img-size'] ) }}
-                </div>
+                    {{ HTML::image( $data->image, $data->title, ['class'=>'img-size', 'align'=>'right'] ) }}
+                    {{$data->description}}
 
-                <div class="span12">
-                    <p>{{$data->description}}</p>
                 </div>
 
             </div><!--/span9-->
