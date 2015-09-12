@@ -44,8 +44,8 @@
                 <li class="active"><a href="{{ URL::route('index') }}">English</a> <i class="icon-ok"></i></li>
             </ul>
         </li>
-        <li class="devider">&nbsp;</li>
-        <li><a href="{{ URL::route('faq') }}" class="login-btn">Help</a></li>
+        {{--<li class="devider">&nbsp;</li>
+        <li><a href="{{ URL::route('faq') }}" class="login-btn">Help</a></li>--}}
         <li class="devider">&nbsp;</li>
         <li><a href="{{ URL::route('admin/login') }}" class="login-btn">Login</a></li>
     </ul>
@@ -85,6 +85,8 @@
                             <li><a href="{{ URL::route('security') }}">Security</a></li>
                             <li><a href="{{ URL::route('consultancy') }}">Consultancy</a></li>
                             <li><a href="{{ URL::route('web-design') }}">Web Design</a></li>
+                            <li><a href="{{ URL::route('web-design') }}">Web Design</a></li>
+                            <li><a href=" ">Education Technologies</a></li>
                         </ul>
                         <b class="caret-out"></b>
                     </li>
@@ -101,16 +103,7 @@
                         </ul>
                         <b class="caret-out"></b>
                     </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Education Technologies
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            {{--<li><a href="{{ URL::route('client-service') }}">Service</a></li>
-                            <li><a href="{{ URL::route('client-student') }}">Student</a></li>--}}
-                        </ul>
-                        <b class="caret-out"></b>
-                    </li>
+
                     {{--<li>--}}
                         {{--<a href="{{ URL::route('registrations') }}" >Registration </a>--}}
                     {{--</li>--}}
