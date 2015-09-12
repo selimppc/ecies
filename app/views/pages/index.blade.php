@@ -61,7 +61,7 @@
 <!-- //End Service Blokcs -->
 
 <!-- Recent Works -->
-<div class="headline"><h3>Recent Works</h3></div>
+<div class="headline"><h3>Skills</h3></div>
 <ul class="thumbnails">
     @foreach($recent_work as $values)
     <li class="span3">
@@ -85,7 +85,7 @@
 <div class="row-fluid margin-bottom-20">
     <!-- Who We Are -->
     <div class="span8">
-        <div class="headline"><h3>Getting Started</h3></div>
+        <div class="headline"><h3>About Us</h3></div>
         <p>
             {{ HTML::image( '/assets/img/mustafa_737_490.png', 'Ecies.co.uk', ['class'=>'pull-left lft-img-margin img-width-200'] ) }}
             Ecies is private limited company, it is based in London United Kingdom. It provides Training and Consultancy services for not-for-profit organizations, small and medium-sized enterprises, Started it operations in 2011. We offer core specialist expertise includes, Training in different sectors and industries, Consultancy, Web design, ICT Support services such as Server support, Policies analysis, Risk assessment, securing your ICT assets and framework.</p>
@@ -108,9 +108,9 @@
                 @foreach($recent_work as $values)
                   <div class="item {{$values->id >3 ? 'active' : ''}}">
                       {{ HTML::image( $values->image, $values->title ) }}
-                    <div class="carousel-caption">
+                    {{--<div class="carousel-caption">
                       <p>{{$values->title}}</p>
-                    </div>
+                    </div>--}}
                   </div>
                 @endforeach
 

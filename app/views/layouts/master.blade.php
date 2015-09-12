@@ -181,7 +181,7 @@
     <div class="row-fluid">
         <div class="span8">
             <!-- About -->
-            <div class="headline"><h3>About Ecies.co.UK</h3></div>
+            <div class="headline"><h3>Ecies.co.uk</h3></div>
             <p class="margin-bottom-25">Ecies is private limited company, it is based in London United Kingdom. It provides Training and Consultancy services for not-for-profit organizations, small and medium-sized enterprises, Started it operations in 2011.</p>
 
             <!-- Monthly Newsletter -->
