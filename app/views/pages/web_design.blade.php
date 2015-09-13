@@ -7,7 +7,7 @@
             <h1 class="color-green pull-left"> {{$data->title }}</h1>
             <ul class="pull-right breadcrumb">
                 <li><a href="{{ URL::route('index') }}">Home</a> <span class="divider">/</span></li>
-                <li class="active">Web Design</li>
+                <li class="active">Web Application Development</li>
             </ul>
         </div><!--/container-->
     </div><!--/breadcrumbs-->

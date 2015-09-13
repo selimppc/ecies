@@ -4,7 +4,8 @@
 	position: relative;
 	margin: 0 auto;
 	overflow: hidden;
-	background: transparent url(../img/bg.jpg) repeat 0% 0%;
+	/* background: transparent url(../img/bg.jpg) repeat 0% 0%; */
+	background-color: #fff;
 	box-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px -2px 1px #fff;
 	-webkit-transition: background-position 1.4s ease-in-out 0.3s;
 	-moz-transition: background-position 1.4s ease-in-out 0.3s;
@@ -50,7 +51,7 @@
 }
 .da-slide h2{
 	font-family: 'Open Sans', sans-serif;
-	color: #f9f9f9;
+	color: darkgreen;
 	line-height:50px;
 	top: 100px;
 	z-index: 10;
@@ -60,7 +61,7 @@
 .da-slide h2 i {
 	font-size: 36px;
 	font-style:normal;
-	background:url(../img/bg-heading.png) repeat;
+	/*background:url(../img/bg-heading.png) repeat; */
 	padding:0 5px;
 	text-transform:uppercase;
 }
@@ -71,12 +72,12 @@
 	line-height: 25px;
 	width:100%;
 	top: 300px;
-	color: #fff;
+	color: #1a1a1a;
 	overflow: hidden;
 	margin-left:-2%;
 }
 .da-slide p i {
-	background:url(../img/bg-text.png) repeat;
+	/* background:url(../img/bg-text.png) repeat; */
 	padding:0 10px;
 	font-style:normal;
 }

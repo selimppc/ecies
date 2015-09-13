@@ -50,28 +50,34 @@
             <div class="headline"><h3>Contacts</h3></div>
             <ul class="unstyled who margin-bottom-20">
                 <address>
-                    ecie ltd <br />
-                    BM BOX 2364, London <br />
-                    WC1N 3XX, United Kingdom <br />
-                    Phone: +44 (0)20 7419 5927 <br />
-                    Email: <a href="mailto:SALES@ECIES.CO.UK" class="">sales@ecies.co.uk</a>
+                    <b>ECIES LTD</b> <br>
+                    BM BOX 2364, <br>
+                    London <br>
+                    WC1N 3XX <br>
+                    United Kingdom <br>
+                    Phone: +44 (0)20 7419 5927 <br>
+                    Email: <a href="mailto:sales@ecies.co.uk" class="">sales@ecies.co.uk</a>
                 </address>
 
                 <address>
                     <b> Company Information: </b> <br />
-                    Company Number: 8783269 <br />
-                    VAT number: GB 1319966 <br />
+                    Company Number: 8783269 <br>
+                    VAT number: GB 1319966 <br>
                 </address>
 
                 <address>
                     Visit: To visit a office you must make an appointment.<br />
-                    Appointment are available.
+                    <b>Appointment are available.</b>  <br>
+                    Monday - Friday between <br>
+                    10:00 AM - 12:00AM <br>
+                    (Excluding public holidays)
                 </address>
 
                 <address>
-                    Monday - Friday between 10AM - 12AM ( excluding public holidays)<br /><br />
                     <b> Normal business hours: </b> <br />
-                    Monday - Friday 9AM - 5PM ( excluding public holidays )
+                    Monday - Friday <br />
+                    09:00 AM - 17:00 PM <br />
+                    (Excluding public holidays)
                 </address>
             </ul>
 

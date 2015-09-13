@@ -39,11 +39,11 @@
 <div class="top">
 <div class="container">
     <ul class="loginbar pull-right">
-        <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
-            <ul class="nav-list">
-                <li class="active"><a href="{{ URL::route('index') }}">English</a> <i class="icon-ok"></i></li>
-            </ul>
-        </li>
+        {{--<li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>--}}
+            {{--<ul class="nav-list">--}}
+                {{--<li class="active"><a href="{{ URL::route('index') }}">English</a> <i class="icon-ok"></i></li>--}}
+            {{--</ul>--}}
+        {{--</li>--}}
         {{--<li class="devider">&nbsp;</li>
         <li><a href="{{ URL::route('faq') }}" class="login-btn">Help</a></li>--}}
         <li class="devider">&nbsp;</li>
@@ -84,8 +84,7 @@
                             <li><a href="{{ URL::route('ict-support') }}">ICT Support</a></li>
                             <li><a href="{{ URL::route('security') }}">Security</a></li>
                             <li><a href="{{ URL::route('consultancy') }}">Consultancy</a></li>
-                            <li><a href="{{ URL::route('web-design') }}">Web Design</a></li>
-                            <li><a href="{{ URL::route('web-design') }}">Web Design</a></li>
+                            <li><a href="{{ URL::route('web-design') }}">Web Application Development</a></li>
                             <li><a href=" ">Education Technologies</a></li>
                         </ul>
                         <b class="caret-out"></b>
@@ -168,52 +167,7 @@
     @yield('content')
 
 
-<!--=== Footer ===-->
-<div class="footer">
-<div class="container">
-    <div class="row-fluid">
-        <div class="span8">
-            <!-- About -->
-            <div class="headline"><h3>Ecies.co.uk</h3></div>
-            <p class="margin-bottom-25">Ecies is private limited company, it is based in London United Kingdom. It provides Training and Consultancy services for not-for-profit organizations, small and medium-sized enterprises, Started it operations in 2011.</p>
 
-            <!-- Monthly Newsletter -->
-            <div class="headline"><h3>Monthly Newsletter</h3></div>
-            <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
-            <form class="form-inline" />
-                <div class="input-append">
-                    <input type="text" placeholder="Email Address" class="input-medium"  required="required"/>
-                    <button class="btn-u">Subscribe</button>
-                </div>
-            </form>
-        </div><!--/span4-->
-
-
-
-        <div class="span4">
-            <!-- Monthly Newsletter -->
-            <div class="headline"><h3>Contact Us</h3></div>
-            <address>
-                Ecies Ltd <br />
-                BM BOX 2364, London <br />
-                WC1N 3XX, United Kingdom <br />
-                Phone: +44 (0)20 7419 5927 <br />
-                Email: <a href="mailto:sales@ecies.co.uk" class="">sales@ecies.co.uk</a>
-            </address>
-
-            <!-- Stay Connected -->
-            <div class="headline"><h3>Stay Connected</h3></div>
-            <ul class="social-icons">
-                <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
-                <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
-                <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
-                <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
-            </ul>
-        </div><!--/span4-->
-    </div><!--/row-fluid-->
-</div><!--/container-->
-</div><!--/footer-->
-<!--=== End Footer ===-->
 
 <!--=== Copyright ===-->
 <div class="copyright">

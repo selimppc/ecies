@@ -26,38 +26,38 @@
 <!--=== Content Part ===-->
 <div class="container">
 <!-- Service Blocks -->
-<div class="row-fluid">
-    <div class="span4">
-        <div class="service clearfix">
-            <!--<i class="icon-resize-small"></i>-->
-            {{ HTML::image( '/assets/img/lock.png', 'Ecies.co.uk', ['width'=>"80"] ) }}
-            <div class="desc">
-                <h4>{{ Str::upper($data_security->title) }}</h4>
-                <p>{{ substr($data_security->description, 0, 130) }} ...</p>
-            </div>
-        </div>
-    </div>
-    <div class="span4">
-        <div class="service clearfix">
-            <!--<i class="icon-cogs"></i>-->
-            {{ HTML::image( '/assets/img/process.png', 'Ecies.co.uk', ['width'=>"80"] ) }}
-            <div class="desc">
-                <h4>{{ Str::upper($data_consultancy->title) }}</h4>
-                <p>{{ substr($data_consultancy->description, 0, 130) }} ...</p>
-            </div>
-        </div>
-    </div>
-    <div class="span4">
-        <div class="service clearfix">
-            <!--<i class="icon-plane"></i>-->
-            {{ HTML::image( '/assets/img/it_suite.png', 'Ecies.co.uk', ['width'=>"80"] ) }}
-            <div class="desc">
-                <h4>{{ Str::upper($data_ict_workshop->title) }}</h4>
-                <p>{{ substr($data_ict_workshop->description, 0, 130) }} ...</p>
-            </div>
-        </div>
-    </div>
-</div><!--/row-fluid-->
+{{--<div class="row-fluid">--}}
+    {{--<div class="span4">--}}
+        {{--<div class="service clearfix">--}}
+            {{--<!--<i class="icon-resize-small"></i>-->--}}
+            {{--{{ HTML::image( '/assets/img/lock.png', 'Ecies.co.uk', ['width'=>"80"] ) }}--}}
+            {{--<div class="desc">--}}
+                {{--<h4>{{ Str::upper($data_security->title) }}</h4>--}}
+                {{--<p>{{ substr($data_security->description, 0, 130) }} ...</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="span4">--}}
+        {{--<div class="service clearfix">--}}
+            {{--<!--<i class="icon-cogs"></i>-->--}}
+            {{--{{ HTML::image( '/assets/img/process.png', 'Ecies.co.uk', ['width'=>"80"] ) }}--}}
+            {{--<div class="desc">--}}
+                {{--<h4>{{ Str::upper($data_consultancy->title) }}</h4>--}}
+                {{--<p>{{ substr($data_consultancy->description, 0, 130) }} ...</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="span4">--}}
+        {{--<div class="service clearfix">--}}
+            {{--<!--<i class="icon-plane"></i>-->--}}
+            {{--{{ HTML::image( $data_ict_workshop->image, 'Ecies.co.uk', ['width'=>"80"] ) }}--}}
+            {{--<div class="desc">--}}
+                {{--<h4>{{ Str::upper($data_ict_workshop->title) }}</h4>--}}
+                {{--<p>{{ substr($data_ict_workshop->description, 0, 130) }} ...</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div><!--/row-fluid-->--}}
 <!-- //End Service Blokcs -->
 
 <!-- Recent Works -->

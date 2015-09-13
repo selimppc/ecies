@@ -116,8 +116,8 @@ class AdminController extends \BaseController {
                 $img_thumb_dir = $img_dir."thumb/";
 
                 $filename = $image->getClientOriginalName();
-                $pathL = public_path($img_dir.$filename);
-                $pathS = public_path($img_thumb_dir.$filename);
+                $pathL = $img_dir.$filename;
+                $pathS = $img_thumb_dir.$filename;
                 Image::make($image->getRealPath())->resize(900, 600)->save($pathL);
                 Image::make($image->getRealPath())->resize(60, 60)->save($pathS);
 
@@ -379,7 +379,7 @@ class AdminController extends \BaseController {
                 #$img_thumb_dir = $img_dir."thumb/";
 
                 $filename = $image->getClientOriginalName();
-                $pathL = public_path($img_dir.$filename);
+                $pathL = $img_dir.$filename;
                 #$pathS = public_path($img_thumb_dir.$filename);
                 Image::make($image->getRealPath())->resize(900, 600)->save($pathL);
                 #Image::make($image->getRealPath())->resize(60, 60)->save($pathS);
